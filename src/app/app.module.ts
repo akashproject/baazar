@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -21,6 +20,8 @@ import { ComingSessionsComponent } from './components/coming-sessions/coming-ses
 import { TrainerComponent } from './components/trainer/trainer.component';
 import { FeaturedVideoComponent } from './components/featured-video/featured-video.component';
 import { BeforeFooterComponent } from './components/before-footer/before-footer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,11 @@ import { BeforeFooterComponent } from './components/before-footer/before-footer.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
