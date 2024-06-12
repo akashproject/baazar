@@ -1,0 +1,183 @@
+.im-fell-french-canon {
+    font-family: "IM Fell French Canon", serif;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: inherit;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+  p.bazar {
+    font-family: IM FELL French Canon;
+    font-size: 26.54px;
+    font-weight: 400;
+    letter-spacing: 0.295em;
+    text-align: left;
+    color: #B0DC00;
+  }
+  
+  span.banner-span-title {
+    color: #CCFF00;
+  }
+  
+  .text-class {
+    font-family: Imprima;
+    font-size: 14.29px;
+    font-weight: 400;
+    line-height: 16.55px;
+    text-align: center;
+    color: #000;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .banner-section {
+    strong {
+      border: 1px solid #FFFFFF;
+      font-family: Imprima;
+      font-size: 12.79px;
+      font-weight: 400;
+      line-height: 14.81px;
+      text-align: center;
+      padding: 3px;
+    }
+  
+    h5 {
+      font-family: Homenaje;
+      font-size: 63.19px;
+      font-weight: 400;
+      text-align: left;
+    }
+  }
+  
+  .stock {
+    font-family: Imprima;
+    font-size: 17.59px;
+    font-weight: 400;
+    line-height: 20.37px;
+    text-align: center;
+  }
+  
+  i.fas.fa-calendar-alt {
+    color: #CCFF00;
+  }
+  
+  span.ps-2 {
+    font-family: Imprima;
+    font-size: 17.59px;
+    font-weight: 400;
+    line-height: 20.37px;
+    text-align: center;
+  }
+  
+  .banner-btn {
+    border: 2px solid #CCFF00;
+    border-radius: 50px;
+    background: #242424F5;
+  }
+  
+  .carousel-indicators button {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+  }
+  
+  .overlay-container {
+    position: relative;
+  
+    &::after {
+      position: absolute;
+      content: '';
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6784313725);
+    }
+  }
+  
+  
+  @media screen and (max-width: 991px){
+    .banner-section h5 {
+      font-size: 52px;
+      line-height: 32px;
+  }
+  .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+  }
+  .section-title {
+    font-size: 34px;
+  }
+  }
+  
+  @media screen and (max-width: 767px){
+    .carousel-caption {
+      right: 15%;
+      left: 20px;
+      width: 100%;
+      max-width: 90%;
+    }
+    .banner-section h5 {
+      font-size: 40px;
+      margin-bottom: 10px;
+  }
+  p.bazar  {
+    font-size: 19.54px;
+    margin-bottom: 8px;
+  }
+  }
+  
+  @media screen and (max-width: 575px){
+    .banner-section {
+      padding-top: 60px !important;
+    }
+    h5.bazar  {
+      font-size: 24.55px;
+      line-height: 24.16px;
+  }
+  h5.live  {
+    font-size: 18px;
+    line-height: 20px;
+  
+  }
+  .overlay-container img {
+    height: 400px;
+  }
+  .banner-section h5 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  .stock {
+    font-size: 14px;
+    line-height: normal;
+  }
+  .banner-section .row.ps-3 {
+    margin: 11px 0;
+    padding-left: 0 !important;
+  }
+  button.btn {
+    font-size: 13px !important;
+  }
+    
+  }
+  
+  @media screen and (max-width: 410px)
+  {
+    span.ps-2 {
+      font-size: 11px;
+      line-height: normal;
+  }
+  p.col-md-3.col-4.stock {
+    width: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0;
+  }
+  }  

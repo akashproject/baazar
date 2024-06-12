@@ -1,0 +1,196 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .btn-outline-success {
+    margin-left: 10px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.carousel-caption h5 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.carousel-caption .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.swiper-pagination-bullet {
+    background: white !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: white;
+}
+
+.header {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header ul.navbar-nav.ml-auto li {
+    padding: 0px 30px;
+}
+
+.header ul.navbar-nav.ml-auto li:nth-child(-n+4) {
+    border-right: 1px solid #fff;
+}
+
+.header a.nav-link {
+    padding: 0;
+}
+
+.header ul.navbar-nav.ml-auto {
+    align-items: center;
+}
+
+button.btn.btn-custom {
+    padding: 5px 15px;
+    border: 2px solid #CCFF00;
+    border-radius: 50px;
+    color: #fff;
+
+}
+
+.Imprima {
+    font-family: Imprima;
+    font-size: 17.59px;
+    font-weight: 400;
+    line-height: 20.37px;
+}
+
+img.cart-icon {
+    width: 30px;
+    height: 30px;
+}
+
+img.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+h5.bazar {
+    font-family: Roboto;
+    font-size: 31.55px;
+    font-weight: 700;
+    line-height: 44.16px;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+
+h5.live {
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: -0.04em;
+    position: absolute;
+    top: 50%;
+    color: #fff;
+}
+
+// responsive start
+
+@media screen and (max-width: 1350px) {
+    .header {
+        .navbar-nav.ml-auto {
+            li {
+                padding: 0px 20px !important;
+            }
+            li:last-child{
+                padding-right: 0 !important;
+            }
+            li:nth-child(6), li:nth-child(7){
+                padding-right: 0 !important;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 1100px){
+    .header {
+        .navbar-nav.ml-auto {
+            li {
+                padding: 0px 14px !important;
+            }
+        }
+    }
+    .Imprima {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 991px){
+    header.header nav.navbar.navbar-expand-lg {
+        width: 100%;
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+    nav.navbar .navbar-toggler .navbar-toggler-icon {
+        filter: invert(5);
+    }
+    #navbarNav {
+        background: white;
+        padding: 50px 0;
+    }
+    .navbar-nav .nav-link {
+        color: black !important;
+    }
+    button.btn.btn-custom {
+        color: #000;
+    }
+    .header {
+        .navbar-nav.ml-auto {
+            li {
+                padding: 15px 0px !important;
+            }
+        }
+    }
+}
+

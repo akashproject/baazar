@@ -1,0 +1,90 @@
+.bg-custom-color {
+    background-color: #043A3A;
+}
+.f-21{
+    font-size: 21px !important;
+    font-weight: 600;
+    line-height: 24px !important;
+}
+.h-font{
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+.p-font{
+    font-family: "Mulish", sans-serif;
+}
+.p-16{
+    font-size: 16px !important;
+    font-weight: 400;
+    line-height: 24px;
+}
+.sub-btn {
+    background: #2FB95D;
+    padding: 24px 16px;
+    max-width: 152px;
+    height: 72px;
+    color: #fff;
+    border-radius: 0 16px 16px 0;
+}
+.f-e-i {
+    padding: 24px;
+    max-width: 280px;
+    border-radius: 16px 0px 0px 16px;
+    color: #fff;
+    height: 72px;
+}
+img.logo{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+h5.bazar {
+    font-family: Roboto;
+    font-size: 31.55px;
+    font-weight: 700;
+    line-height: 44.16px;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+h5.live {
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: -0.04em;
+    position: absolute;
+    top: 50%;
+    color: #fff;
+}
+
+@media (max-width: 991px) {
+   .menu-bar {
+        max-width: 160px;
+        margin-left: auto;
+    }
+    .f-e-i {
+        padding: 7px;
+        border-radius: 9px 0px 0px 9px;
+        height: 55px;
+    }
+    .sub-btn  {
+        padding: 8px 8px;
+        max-width: 152px;
+        height: 55px;
+        border-radius: 0 10px 10px 0;
+        font-size: 15px;
+    }
+
+}
+@media (max-width: 768px) {
+    .sub-btn,.f-e-i  {
+        padding : 10px 10px;
+        height: 100%;
+    }
+    .menu-bar {
+        max-width: 100%;
+    }
+
+
+}
+
