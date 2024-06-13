@@ -6,93 +6,32 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="row">
-            <div class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                <div class="card profile-card">
-                    <div class="profile-img-placeholder position-relative">
-                        <img src="/assets/images/teacher/T1.png" alt="Dianne Russell" class="card-img-top">
-                        <div class="ribbon">SEBI</div>
-                    </div>
-                    <div class="card-body text-center position-relative">
-                        <div class="card-title up-se-title">
-                            <h5>Dianne Russell</h5>
-                            <p>5+ years of experience</p>
+                <div *ngFor="let session of sessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card profile-card">
+                        <div class="profile-img-placeholder position-relative">
+                            <img src="/assets/images/teacher/T1.png" alt="Dianne Russell" class="card-img-top">
+                            <div class="ribbon">SEBI</div>
                         </div>
-                        <p class="card-text daily-stock"><span>Daily Stock</span><span class="imprima-regular"> 10k+ Followers</span></p>
-                        <div class="additional-info row">
-                            <p class="col-md-6 imprima-regular price">Starts at Rs.3999</p>
-                            <div class="time col-md-6 row imprima-regular">
-                                <p class="col-md-6"><i class="fas fa-clock"></i>130 min</p>
-                                <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
+                        <div class="card-body text-center position-relative">
+                            <div class="card-title up-se-title">
+                                <h5>{{ session.trainers }}</h5>
+                                <p>5+ years of experience</p>
+                            </div>
+                            <p class="card-text daily-stock">
+                                <span>{{session.course}}</span>
+                                <span class="imprima-regular"> 10k+ Followers</span>
+                            </p>
+                            <div class="additional-info row">
+                                <p class="col-md-6 imprima-regular price">Starts at Rs.{{ session.teacher_fee }}</p>
+                                <div class="time col-md-6 row imprima-regular">
+                                    <p class="col-md-6"><i class="fas fa-clock"></i>{{session.duration}} min</p>
+                                    <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                <div class="card profile-card">
-                    <div class="profile-img-placeholder position-relative">
-                        <img src="/assets/images/teacher/T1.png" alt="Dianne Russell" class="card-img-top">
-                        <div class="ribbon">SEBI</div>
-                    </div>
-                    <div class="card-body text-center position-relative">
-                        <div class="card-title up-se-title">
-                            <h5>Dianne Russell</h5>
-                            <p>5+ years of experience</p>
-                        </div>
-                        <p class="card-text daily-stock"><span>Daily Stock</span><span class="imprima-regular"> 10k+ Followers</span></p>
-                        <div class="additional-info row">
-                            <p class="col-md-6 imprima-regular price">Starts at Rs.3999</p>
-                            <div class="time col-md-6 row imprima-regular">
-                                <p class="col-md-6"><i class="fas fa-clock"></i>130 min</p>
-                                <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <div class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                <div class="card profile-card">
-                    <div class="profile-img-placeholder position-relative">
-                        <img src="/assets/images/teacher/T1.png" alt="Dianne Russell" class="card-img-top">
-                        <div class="ribbon">SEBI</div>
-                    </div>
-                    <div class="card-body text-center position-relative">
-                        <div class="card-title up-se-title">
-                            <h5>Dianne Russell</h5>
-                            <p>5+ years of experience</p>
-                        </div>
-                        <p class="card-text daily-stock"><span>Daily Stock</span><span class="imprima-regular"> 10k+ Followers</span></p>
-                        <div class="additional-info row">
-                            <p class="col-md-6 imprima-regular price">Starts at Rs.3999</p>
-                            <div class="time col-md-6 row imprima-regular">
-                                <p class="col-md-6"><i class="fas fa-clock"></i>130 min</p>
-                                <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <div class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                <div class="card profile-card">
-                    <div class="profile-img-placeholder position-relative">
-                        <img src="/assets/images/teacher/T1.png" alt="Dianne Russell" class="card-img-top">
-                        <div class="ribbon">SEBI</div>
-                    </div>
-                    <div class="card-body text-center position-relative">
-                        <div class="card-title up-se-title">
-                            <h5>Dianne Russell</h5>
-                            <p>5+ years of experience</p>
-                        </div>
-                        <p class="card-text daily-stock"><span>Daily Stock</span><span class="imprima-regular"> 10k+ Followers</span></p>
-                        <div class="additional-info row">
-                            <p class="col-md-6 imprima-regular price">Starts at Rs.3999</p>
-                            <div class="time col-md-6 row imprima-regular">
-                                <p class="col-md-6"><i class="fas fa-clock"></i>130 min</p>
-                                <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Repeat the above swiper-slide for each session -->
         </div>
     </div>
     <div class="swiper-button-next"></div>
