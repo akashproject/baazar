@@ -12,11 +12,14 @@ import { Router } from '@angular/router';
 })
 export class ComingSessionsComponent implements OnInit{
   public sessions : any = [];
+  mediaURL: any = '';
   constructor(
     private router: Router,
     private api: ApiService,
     public util: UtilService,
-    private toastr: ToastrService) {}
+    private toastr: ToastrService) {
+      this.mediaURL = environment.mediaURL;
+    }
 
   ngOnInit(): void {
     this.getLiveSessions();

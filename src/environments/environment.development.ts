@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
     baseURL: 'http://localhost/baazar/panel/',
-    mediaURL: 'http://localhost/baazar/panel/api/',
+    mediaURL: 'http://localhost/baazar/panel/public/',
     uservault: 'http://localhost/baazar/panel/api/',
     apiUrl: 'http://localhost/baazar/panel/api/',
     general: {

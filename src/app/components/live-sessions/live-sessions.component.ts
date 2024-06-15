@@ -12,13 +12,15 @@ import { Router } from '@angular/router';
 export class LiveSessionsComponent implements OnInit {
 
   public sessions : any = [];
-
+  mediaURL: any = '';
 
   constructor(
     private router: Router,
     private api: ApiService,
     public util: UtilService,
-    private toastr: ToastrService) {}
+    private toastr: ToastrService) {
+      this.mediaURL = environment.mediaURL;
+    }
 
   ngOnInit(): void {
     this.getLiveSessions();
@@ -26,8 +28,6 @@ export class LiveSessionsComponent implements OnInit {
 
   getLiveSessions(){
     this.api.get("live-sessions").subscribe((data: any) => {
-      console.log(data);
-      
       this.sessions = data;
     });
   }
