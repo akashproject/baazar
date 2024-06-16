@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <h2 class="text-custom section-title font-Homenaje">Current <span style="color:#f00">Live</span> Sessions</h2>
     <div class="row grid-hrd-wrapper">
-        <div class="grid-hrd col-12 my-2" *ngFor="let session of sessions;">
+        <div class="grid-hrd col-6 my-2" *ngFor="let session of sessions;">
             <div class="card card-horizontal">
                 <img class="card-img-left" src="{{mediaURL+session.avator}}" alt="Description of image">
                 <div class="ribbon">SEBI</div>
@@ -15,7 +15,7 @@
                             <p class="followers"><span class="count">10K+ </span>Followers</p>
                             <p class="followers"> <span class="count">5y+</span> Experience</p>
                             <button type="button" class="btn f-o">Futures and Options</button>
-                            <a href="#" class="btn btn-primary buy-now">Buy at ₹{{session.price}}</a>
+                            <a href="#" class="btn btn-primary buy-now">Buy at ₹{{session.price}} + GST</a>
                         </div>
                     </div>
                 </div>
