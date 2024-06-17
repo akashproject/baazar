@@ -22,6 +22,15 @@ import { FeaturedVideoComponent } from './components/featured-video/featured-vid
 import { BeforeFooterComponent } from './components/before-footer/before-footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SearchComponent } from './components/search/search.component';
+import { OnlineCourseComponent } from './components/online-course/online-course.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { TodaysUpcomingSessionComponent } from './components/todays-upcoming-session/todays-upcoming-session.component';
+import { TomorrowUpcomingSessionComponent } from './components/tomorrow-upcoming-session/tomorrow-upcoming-session.component';
+import { MoreUpcomingSessionComponent } from './components/more-upcoming-session/more-upcoming-session.component';
+import { TrainerBioComponent } from './pages/trainer-bio/trainer-bio.component';
+import { TrainerListComponent } from './pages/trainer-list/trainer-list.component';
+import { InnerHeaderComponent } from './components/inner-header/inner-header.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +52,16 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     LiveSessionsComponent,
     ComingSessionsComponent,
     FeaturedVideoComponent,
-    BeforeFooterComponent
+    BeforeFooterComponent,
+    SearchComponent,
+    OnlineCourseComponent,
+    NotificationComponent,
+    TodaysUpcomingSessionComponent,
+    TomorrowUpcomingSessionComponent,
+    MoreUpcomingSessionComponent,
+    TrainerBioComponent,
+    TrainerListComponent,
+    InnerHeaderComponent
   ],
   imports: [
     BrowserModule,

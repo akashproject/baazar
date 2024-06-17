@@ -1,0 +1,68 @@
+.notification-section{
+    max-width: 840px;
+    .card{
+        border: none;
+    }
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0px 14px 42px 0px #080F340F;
+        background: #fff;
+        border: none;
+        border-radius: 12px;
+      }
+      
+      .circle-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #702DFF33;
+        margin-right: 10px;
+      }
+      
+      .circle-icon i {
+        font-size: 24px;
+        color: #ff6b6b;
+      }
+      
+      .card-title {
+        flex-grow: 1;
+        margin: 0;
+        padding: 0 10px;
+      }
+      
+      .kebab-menu-icon {
+        font-size: 24px;
+        color: #333; /* Adjust the color as needed */
+      }
+      h5.card-title {
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.52px;
+        color: #5F5F5F;
+        text-align: left;
+        padding: 0px;
+    }
+    
+    p.card-text {
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 14.52px;
+        text-align: left;
+    }
+    
+}
+@media (max-width: 575px) {
+  /* Media query for screen width up to 575px */
+  .card-body {
+    margin-top: 10px; /* Margin top for smaller screens */
+    margin-bottom: 10px; /* Margin bottom for smaller screens */
+  }
+}
+

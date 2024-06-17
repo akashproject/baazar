@@ -5,7 +5,7 @@
 .section-title {
     font-size: 44px;
     font-weight: 400;
-    color: #000
+    color: #000;
 }
 
 .card {
@@ -16,20 +16,20 @@
     display: flex;
     flex-direction: row;
     flex: 0 0 auto;
-}
 
-.card-horizontal img {
-    width: 50%;
-    height: auto;
-    object-fit: cover;
-    position: relative;
+    img {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+        position: relative;
+    }
 }
 
 .ribbon {
     position: absolute;
     top: 30px;
     left: 0px;
-    background-color: #509A41;
+    background-color: #509a41;
     color: white;
     padding: 5px 10px;
     font-size: 12px;
@@ -52,11 +52,11 @@
     font-weight: 700;
     line-height: 23.44px;
     text-align: right;
-    color: #B91C1C;
+    color: #b91c1c;
     position: absolute;
     right: 0;
     top: -10px;
-    border: 1px solid #B91C1C;
+    border: 1px solid #b91c1c;
     padding: 0 10px;
     background: rgba(185, 28, 28, 0.1490196078);
 }
@@ -113,10 +113,11 @@ p.followers {
     line-height: 17px;
     letter-spacing: -0.12999999523162842px;
     text-align: center;
-    color: #B0DC00;
-    border: 1px solid #B0DC00;
+    border: 1px solid #b0dc00;
+    color: #b0dc00 !important;
     border-radius: 10px;
     width: 100%;
+    padding: 0;
 }
 
 .buy-now {
@@ -126,12 +127,11 @@ p.followers {
     line-height: 20px;
     letter-spacing: -0.1599999964237213px;
     text-align: center;
-    background: #A042FF;
+    background: #a042ff;
     border: 2px solid #454545;
     width: 100%;
     margin-top: 20px;
 }
-
 
 .grid-hrd-wrapper {
     display: grid;
@@ -149,7 +149,6 @@ p.followers {
         overflow: hidden;
     }
 }
-
 
 @media screen and (max-width: 767px) {
     .grid-hrd-wrapper {

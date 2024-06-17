@@ -1,0 +1,138 @@
+.subscription-container {
+    margin: 50px auto;
+
+       h4.about-s {
+    font-family: Homenaje;
+    font-size: 44px;
+    font-weight: 400;
+    text-align: left;
+    color: #454545;
+    line-height: 54px;
+    margin: 0;
+}
+.expert {
+    font-family: Homenaje;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+}
+h5.t-name {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29.05px;
+    text-align: left;
+    color: #454545;
+}
+p.description {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+    color: #454545;
+}
+p.bottom-description {
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #000;
+}
+.custom {
+    padding: 40px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background: #f5f5f5;
+    border-radius: 12px;
+}
+img.me-3.profile-img{
+    max-width: 312px;
+    height: auto;
+    border-radius: 30px;
+    width: 100%;
+}
+button.btn.btn-subscribe.mt-3 {
+    max-width: 330px;
+    background: #509a41;
+    width: 100%;
+    margin: 10px auto !important;
+    display: flex;
+    justify-content: center;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #fff;
+    border:none;
+}
+h5.card-title.text-center {
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+    color: #454545;
+}
+p.label {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    color: #979797;
+}
+p.text-muted.placeholder-text {
+    border: 1px solid #979797;
+    border-radius: 100px;
+    padding: 10px 20px;
+}
+del,.del {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    color: #cacaca;
+}
+span.discount {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    color: #509a42;
+    margin-left: 5px;
+}
+span.real-price {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+    color: #454545;
+}
+.notic {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+    color: #979797;
+}
+@media screen and (min-width: 100px) and (max-width: 575px) {
+ h4.about-s{
+        font-size: 30px;
+    }
+    .expert{
+        font-size: 20px;
+    }
+    h5.t-name {
+        font-size: 17px;
+    }
+p.description{
+        font-size: 16px;
+    }
+}
+}

@@ -1,0 +1,21 @@
+.search-section{
+    .example-full-width {
+        width: 100%;
+      }
+      .search-input input::placeholder {
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 14.52px;
+        text-align: left;
+        color: #9E9E9E;
+      }
+      input.form-control {
+        border: 1px solid #CCCCCCCC;
+        padding: 20px 16px;
+        border-radius: 12px !important;
+    }
+    .input-group-append {
+        display: flex;
+    }
+}

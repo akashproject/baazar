@@ -26,10 +26,6 @@
   font-size: 24px;
   color: #333;
 }
-i.fa-solid.fa-chevron-right {
-    font-size: 10px;
-    margin-left: 5px;
-}
 .font-Homenaje{
     font-family: "Homenaje", sans-serif;
 }
@@ -46,6 +42,10 @@ i.fa-solid.fa-chevron-right {
     display: flex;
     flex-direction: row;
     flex: 0 0 auto;
+}
+i.fa-solid.fa-chevron-right {
+    font-size: 10px;
+    margin-left: 5px;
 }
 .card-horizontal img {
     width: 200px;
@@ -209,9 +209,15 @@ p.followers {
     font-size: 17px;
     font-weight: 400;
     line-height: 20.37px;
-    text-align: left;
+    text-align: center;
     word-spacing: -2px;
     letter-spacing: 0px;
+    background: #a042ff;
+    display: inline;
+    border-radius: 10px;
+    color: #fff;
+    margin: 0 10px;
+    padding: 8px;
 }
 .time p {
     font-size: 10px;
@@ -234,7 +240,14 @@ p.followers {
     position: relative;
     bottom: 10px;
 }
-
+@media screen and (max-width: 1560px) {
+    .section-title {
+        margin: 0;
+    }
+    .see-more{
+        margin-top:20px;
+    }
+   }
 @media screen and (max-width: 1100px) {
     .card {
         margin: 0;
@@ -247,12 +260,19 @@ p.followers {
     .up-se-title h5  {
         font-size: 14px;
         line-height: 18px;
+        padding: 5px;
     }
     .up-se-title p {
         font-size: 10px;
     }
+    .price{
+        padding: 5px 10px;
+    }
+    .section-title {
+        margin-top: 8px;
+        margin-bottom: 15px;
+    }
 }
-
 @media screen and (max-width: 991px) {
     .additional-info.row {
         gap: 0;
@@ -267,6 +287,10 @@ p.followers {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+    .section-title {
+        margin-top: 17px;
+        margin-bottom: 23px;
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -274,9 +298,14 @@ p.followers {
         max-width: 400px;
         margin: 0 auto;
     }
+    .section-title{
+        margin-top: 0;
+        margin-bottom: 15px;
+        line-height: 1;
+        font-size: 21px !important;
+    }
     .section-title {
         margin-top: 0;
-        margin-bottom: 0;
-    }
-    
+        margin-bottom: 0px;
 }    
+}       

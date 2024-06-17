@@ -12,6 +12,10 @@
 .carousel-indicators li {
   background-color: red; /* Change dot color to red */
 }
+i.fa-solid.fa-chevron-right {
+    font-size: 10px;
+    margin-left: 5px;
+}
 .section-title {
   margin-top: 40px;
   margin-bottom: 20px;
@@ -25,10 +29,6 @@
   justify-content: center;
   font-size: 24px;
   color: #333;
-}
-i.fa-solid.fa-chevron-right {
-    font-size: 10px;
-    margin-left: 5px;
 }
 .font-Homenaje{
     font-family: "Homenaje", sans-serif;
@@ -209,9 +209,15 @@ p.followers {
     font-size: 17px;
     font-weight: 400;
     line-height: 20.37px;
-    text-align: left;
+    text-align: center;
     word-spacing: -2px;
     letter-spacing: 0px;
+    background: #a042ff;
+    display: inline;
+    border-radius: 10px;
+    color: #fff;
+    margin: 0 10px;
+    padding: 8px;
 }
 .time p {
     font-size: 10px;
@@ -234,7 +240,11 @@ p.followers {
     position: relative;
     bottom: 10px;
 }
-
+@media screen and (max-width: 1560px) {
+    .section-title {
+        margin: 0;
+    }
+   }
 @media screen and (max-width: 1100px) {
     .card {
         margin: 0;
@@ -247,12 +257,26 @@ p.followers {
     .up-se-title h5  {
         font-size: 14px;
         line-height: 18px;
+        padding: 5px;
     }
     .up-se-title p {
         font-size: 10px;
     }
+    .price{
+        padding: 5px 10px;
+    } 
+    .section-title{
+        margin-bottom: 0px;
+    }
+    .section-title {
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+    .section-title {
+        margin-top: 18px;
+        margin-bottom: 26px;
+    }
 }
-
 @media screen and (max-width: 991px) {
     .additional-info.row {
         gap: 0;
@@ -266,6 +290,13 @@ p.followers {
     .time.col-md-6.row.imprima-regular {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }   
+     .section-title{
+        margin-bottom: 0px;
+    }
+    .section-title{
+        margin-top: 13px;
+        margin-bottom: 17px;
     }
 }
 
@@ -274,9 +305,29 @@ p.followers {
         max-width: 400px;
         margin: 0 auto;
     }
-    .section-title {
+    .section-title{
         margin-top: 0;
-        margin-bottom: 0;
+        margin-bottom: 15px;
+        line-height: 1;
+        font-size: 21px !important;
     }
-    
-}    
+    .see-more{
+        align-items: flex-start;
+    }
+    .see-more{
+        display: flex;
+        justify-content: end;
+        align-items: flex-start;
+        color: red;
+    }
+    .section-title{
+        margin-bottom: 0px;
+    }
+    h2.text-custom.section-title.sec {
+        margin-bottom: 0px;
+    }
+}       
+
+
+
+
