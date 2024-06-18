@@ -32,4 +32,9 @@ export class TrainerComponent implements OnInit {
     });
   }
 
+  gotoTrainerBio(id: any) {
+    console.log(id);
+    this.router.navigate(['/trainer-bio',id]);
+  }
+
 }

@@ -8,7 +8,7 @@
         <div class="swiper-wrapper">
             <div class="row">
                 <div  *ngFor="let tutor of tutors;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
-                    <a class="card profile-card" routerLink='/trainer-bio'>
+                    <a class="card profile-card" (click)="gotoTrainerBio(tutor.id)">
                         <div class="profile-img-placeholder position-relative">
                             <img src="{{mediaURL+tutor.avator}}" alt="{{ tutor.name }}" class="card-img-top">
                             <div class="ribbon">SEBI</div>

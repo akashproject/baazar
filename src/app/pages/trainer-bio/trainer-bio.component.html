@@ -1,28 +1,27 @@
 <app-inner-header></app-inner-header>
 <app-search></app-search>
 <app-online-course></app-online-course>
-<app-notification></app-notification>
-    <div class="container subscription-container">
+<div class="container subscription-container">
         <div class="custom">
         <div class="row  border-bottom mb-4">
             <div class="col-12">
                 <h4 class="about-s">About this subscription</h4>
-                <p class="expert">Expert Analysis, Timely enter exit</p>
+                <p class="expert">Expert {{tutor.expertise}}, Timely enter exit</p>
             </div>
         </div>
         <div class="row">
             <div class="row">
-                <h5 class="t-name">Meet CA ILLA BHATI SHARMA</h5>
+                <h5 class="t-name">Meet {{tutor.name}}</h5>
+                <h6 class="t-name my-2">SEBI : {{tutor.sebi_id}}</h6>
             </div>
             <div class="col-lg-8">
                     <div class="row mb-3">
                     <div class="col-lg-6 col-md-6 col-sm-6 d-flex align-items-center justify-content-center">
-                        <img src="/assets/images/teacher/T1.png" alt="Profile Image" class="me-3 profile-img">
+                        <img src="{{mediaURL+tutor.avator}}" alt="Profile Image" class="me-3 profile-img">
                         
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <p class="description mt-3">
-                            Meet CA Kamlesh B Sandanshiv CA Kamlesh B Sandanshiv is SEBI registered Research Analyst ‘CA Kamlesh B Sandanshiv. CA Kamlesh B Sandanshiv is a Trader, Investor and a Trading Mentor.Meet CA Kamlesh B Sandanshiv CA Kamlesh B Sandanshiv is SEBI registered Research Analyst ‘CA Kamlesh B Sandanshiv. CA Kamlesh B Sandanshiv is a Trader, Investor and a Trading Mentor.</p>
+                        <div class="description mt-3"[innerHtml]="tutor.about_me"></div>
                     </div>
                 </div>
 
@@ -57,7 +56,6 @@
             <div class="col-lg-9 col-md-12 col-12 clo-ms-12 mt-3">
                 <p class="bottom-description">
                     Disclaimer : Investing in Stocks/ETFs (Exchange Traded Funds) are subject to market risks. Read all the related documents before investing. Investors should consider all risk factors and consult their financial advisor before investing
-
                 </p>
             </div>
         </div>

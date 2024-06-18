@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'sessions', component: SessionsComponent },
   { path: 'trainers', component: TrainerListComponent },
-  { path: 'trainer-bio', component: TrainerBioComponent },
+  { path: 'trainer-bio/:id', component: TrainerBioComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'thank-you', component: ThankYouComponent },
