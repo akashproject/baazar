@@ -1,0 +1,239 @@
+.cart-container {
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+.cart-item img {
+    width: 80px;
+    height: auto;
+}
+// .btn-update, .btn-return, .btn-checkout {
+//     width: 100%;
+// }
+.col-lg-8.cart{
+    border: 1px solid #E4E7E9;
+    background: #fff !important;
+    padding: 0;
+}
+.cart h4 {
+    font-family: Public Sans;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    color: #191c1f;
+    padding: 10px 30px;
+}
+.bg-color strong {
+    font-family: Public Sans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    color: #475156;
+    padding: 20px;
+}
+.bg-color {
+    border: 1px solid #E4E7E9;
+    background: #F2F4F5;
+}
+img.me-2.product-img {
+    max-width: 72px;
+    margin-left: 13px;
+    height: auto;
+    width: 100%;
+}
+.product-card span {
+    font-family: Public Sans;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: #191c1f;
+}
+.product-card .input-group {
+    padding: 12px 20px 12px 20px;
+    gap: 0px;
+    border-radius: 3px 0px 0px 0px;
+    justify-content: space-between !important;
+    width: 100%;
+    border: 1px solid #E4E7E9;
+}
+.product-card .w-25 {
+    text-align: center;
+}
+.cart-container {
+    margin-top: 50px;
+    max-width: 1420px;
+}
+.product-card .input-group button, .product-card .input-group input {
+    font-family: Public Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    border: none;
+}
+.w-25.price {
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: #475156;
+}
+.w-25.price del {
+    color: #929FA5;
+}
+.w-25.sub-total {
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #191c1f;
+}
+.apply-now{
+        margin-top: 1em;
+        font-family: Public Sans;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 29px;
+        letter-spacing: 0.012em;
+        text-align: left;
+        background: #2DA5F3;
+        border: none;
+    }
+
+.btn-update, .btn-return {
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0.012em;
+    text-align: center;
+    color: #2da5f3;
+    padding: 0 24px;
+    border: 2px solid #2DA5F3;
+}
+.row.mb-3 {
+    margin-top: 2em;
+    margin-left: 1em;
+}
+button.btn.btn-success.btn-checkout i {
+    margin-left: 0.5em;
+}
+i.fa-regular.fa-circle-xmark.ico {
+    color: red;
+}
+.price_1 span {
+    display: block;
+}
+.flxx_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.price_1 span {
+    line-height: 2;
+}
+.total_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.total_wrap span {
+    font-family: Public Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    color: #191C1F;
+}
+.total_wrap h5 {
+    font-family: Public Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+}
+.price_nm p {
+    color: #5F6C72;
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+.flxx_wrap {
+    border-bottom: 1px solid #E4E7E9;
+    margin: 8px 0;
+}
+.price_1 span {
+    font-family: Public Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 34px;
+    text-align: left;
+    color: #191C1F;
+}
+button.btn.btn-success.btn-checkout {
+    background: #509A41;
+    margin-top: 1em;
+}
+h5.card-title {
+    font-family: Public Sans;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+}
+.col-md-6.right_al {
+    text-align: right;
+    margin-left: -1.5em;
+}
+button.btn.btn-primary {
+    margin-top: 1em;
+}
+
+@media screen and (max-width: 768px){
+    .btn-update, .btn-return, .btn-checkout {
+            width: 100%;
+        }
+    .col-md-6.col-12.mb-3.mb-md-0 h1 {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    .mb-2 {
+        margin-bottom: .5rem !important;
+        text-align: center;
+    }
+    .col-md-6.right_al{
+        text-align: right;
+        margin-left: -1.5em;
+        text-align: center;
+        margin-left: 1px;
+        margin-top: 8px;
+    }
+    .col-12.d-flex.justify-content-start {
+        margin-top: -20px;
+    }
+    .online-course-section {
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 29.05px;
+        text-align: left;
+    }
+
+    @media screen and (max-width: 990px) {
+        .card.mb-3 {
+            margin-top: 20px;
+        }
+    }
+    
+}
+@media screen and (min-width: 992px){
+    .cart{
+        max-height: 410px;
+        height: 100%;
+    }
+    }
