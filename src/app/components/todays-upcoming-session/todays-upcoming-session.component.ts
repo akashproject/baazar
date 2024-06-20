@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from '../../services/utils.service';
 import { ApiService } from '../../services/api.service';
+import { CartService } from '../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
@@ -17,16 +18,17 @@ export class TodaysUpcomingSessionComponent {
     private router: Router,
     private api: ApiService,
     public util: UtilService,
+    public cart: CartService,
     private toastr: ToastrService) {
       this.mediaURL = environment.mediaURL;
     }
 
     ngOnInit(): void {
-      this.getLiveSessions();
+      this.getSessions();
     }
   
-    getLiveSessions(){
-      this.api.get("upcoming-sessions").subscribe((data: any) => {
+    getSessions(){
+      this.api.get("today-sessions").subscribe((data: any) => {
         this.sessions = data;
       });
     }

@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="row p-3">
-                                <a href="#" class="btn btn-primary buy-now">Add to Cart</a>
+                                <button href="#" class="btn btn-primary buy-now" (click)="cart.addToCart($event,session)">{{cart.cartBtnLabel}}</button>
                             </div>
                         </div>
                     </div>

@@ -28,13 +28,14 @@ export class LoginComponent implements OnInit{
     private toastr: ToastrService) {
       this.mediaURL = environment.mediaURL;
       this.loginForm = this.fb.group({
-        mobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]], // Validate 10-digit mobile number
-        password: ['', [Validators.required, Validators.minLength(8)]]
+        mobile: ['', [Validators.required]], // Validate 10-digit mobile number
+        password: ['', [Validators.required]]
       });
     }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    console.log("init");
+    
   }
 
   login() {

@@ -1,54 +1,54 @@
 <div class="container-fluid login-container">
     <div class="row logo-row mt-3 margin">
-        <div class="col-md-3">
-            <a class="position-relative d-flex" href="/">
-                <img src="/assets/images/logo.png" alt="Baazar Live Logo" class="logo">
-                <div class="logo-text">
-                <h5 class="bazar">Baazar</h5>
-                <h5 class="live">Live</h5>
-                </div>
-            </a>
-        </div>
-  <div class="row justify-content-center custom-row">
-      <!-- Left Side -->
-      <div class="col-md-6 col-lg-6 col-sm-12 p-0">
-          <img src="/assets/images/Rectangle 9.png" class="side-image" alt="Financial Charts">
-      </div>
-      <!-- Right Side -->
-      <div class="col-md-6 col-lg-6 col-sm-12 form-login p-0">
-        <div class="p-70">
-          <h3 class="wlcm font-poppins">Hello! Welcome back</h3>
-          <p class="font-label font-poppins">Log in with your data that you entered during Your registration</p>
-          <form (ngSubmit)="login()">
-                <div class="form-group mt-3">
-                  <label for="mobile" class="font-label font-poppins">Mobile Number</label>
-                  <input type="mobile" class="form-control box-shadow mt-2" id="mobile" placeholder="mobile">
-                  <div *ngIf="loginForm.get('mobile')?.invalid && (loginForm.get('mobile')?.touched || loginForm.get('mobile')?.dirty)">
-                    <small *ngIf="loginForm.get('mobile')?.errors?.['required']">Mobile number is required.</small>
-                    <small *ngIf="loginForm.get('mobile')?.errors?.['pattern']">Mobile number must be 10 digits.</small>
-                  </div>
-                </div>
-                <div class="form-group mt-3">
-                  <label for="password" class="font-label font-poppins">Password</label>
-                  <input type="password" class="form-control box-shadow mt-2" id="password" placeholder="Password">
-                  <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
-                    <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
-                    <small *ngIf="loginForm.get('password')?.errors?.['minLength']">Password must be at least 8 characters long.</small>
-                  </div>
-                </div>
-              <a routerLink="/forgot-password" class="forgot-password text-end mt-3 ">Forgot Password</a>
-              <button type="submit" class="btn btn-primary start-now btn-block" [disabled]="loginForm.invalid">Login</button>
-              <div class="divider text-center">OR</div>
-              <div class="google-btn font-poppins">
-                  <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google">
-                  Sign with Google
+      <div class="col-md-3">
+          <a class="position-relative d-flex" href="/">
+              <img src="/assets/images/logo.png" alt="Baazar Live Logo" class="logo">
+              <div class="logo-text">
+              <h5 class="bazar">Baazar</h5>
+              <h5 class="live">Live</h5>
               </div>
-              <div class="mt-3 font-label">
-                  Don't have an account? <a routerLink="/signup" class="signup">Sign Up</a>
-              </div>
-          </form>
-        </div>
+          </a>
       </div>
-  </div>
-</div>
+      <div class="row justify-content-center custom-row">
+          <!-- Left Side -->
+          <div class="col-md-6 col-lg-6 col-sm-12 p-0">
+              <img src="/assets/images/Rectangle 9.png" class="side-image" alt="Financial Charts">
+          </div>
+          <!-- Right Side -->
+          <div class="col-md-6 col-lg-6 col-sm-12 form-login p-0">
+            <div class="p-70">
+              <h3 class="wlcm font-poppins">Hello! Welcome back</h3>
+              <p class="font-label font-poppins">Log in with your data that you entered during Your registration</p>
+              <form (ngSubmit)="login()">
+                    <div class="form-group mt-3">
+                      <label for="mobile" class="font-label font-poppins">Mobile Number</label>
+                      <input type="mobile" class="form-control box-shadow mt-2" id="mobile" placeholder="mobile">
+                      <div *ngIf="loginForm.get('mobile')?.invalid && (loginForm.get('mobile')?.touched || loginForm.get('mobile')?.dirty)">
+                        <small *ngIf="loginForm.get('mobile')?.errors?.['required']">Mobile number is required.</small>
+                        <small *ngIf="loginForm.get('mobile')?.errors?.['pattern']">Mobile number must be 10 digits.</small>
+                      </div>
+                    </div>
+                    <div class="form-group mt-3">
+                      <label for="password" class="font-label font-poppins">Password</label>
+                      <input type="password" class="form-control box-shadow mt-2" id="password" placeholder="Password">
+                      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+                        <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+                        <small *ngIf="loginForm.get('password')?.errors?.['minLength']">Password must be at least 8 characters long.</small>
+                      </div>
+                    </div>
+                  <a routerLink="/forgot-password" class="forgot-password text-end mt-3 ">Forgot Password</a>
+                  <button type="submit" class="btn btn-primary start-now btn-block" [disabled]="loginForm.invalid">Login</button>
+                  <div class="divider text-center">OR</div>
+                  <div class="google-btn font-poppins">
+                      <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google">
+                      Sign with Google
+                  </div>
+                  <div class="mt-3 font-label">
+                      Don't have an account? <a routerLink="/signup" class="signup">Sign Up</a>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
 </div>

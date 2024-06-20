@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="row mb-2">
-        <h2 class="text-custom section-title font-Homenaje col-sm-6 col-8"> Today's Upcoming Session</h2>
+        <h2 class="text-custom section-title font-Homenaje col-sm-6 col-8"> Today's Session</h2>
         <a href="#" class="col-sm-6 col-4 see-more text-decoration-none">See more<i class="fa-solid fa-chevron-right"></i></a>
     </div>
     <div class="swiper-container">
@@ -9,7 +9,7 @@
                 <div class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3" *ngFor="let session of sessions;">
                     <div class="card profile-card">
                         <div class="profile-img-placeholder position-relative">
-                            <img src="/assets/images/teacher/T1.png" alt="Dianne Russell" class="card-img-top">
+                            <img src="{{mediaURL+session.avator}}" alt="Dianne Russell" class="card-img-top">
                             <div class="ribbon">SEBI</div>
                         </div>
                         <div class="card-body text-center position-relative">
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="row p-1">
-                                <a href="#" class="btn btn-primary buy-now">Add to Cart</a>
+                                <button href="#" class="btn btn-primary buy-now" (click)="cart.addToCart($event,session)">{{cart.cartBtnLabel}}</button>
                             </div>
                         </div>
                     </div>
