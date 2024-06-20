@@ -23,14 +23,11 @@ export class CartComponent {
     }
 
     ngOnInit(): void {
-      this.getItemFromCart();
+      this.cartItem.push(JSON.parse(localStorage.getItem('item') || '{}'));      
     }
 
     getItemFromCart() {
-      //let item = 
-      console.log(localStorage.getItem("item"));
       
-      //this.cartItem = 
     }
 
 }

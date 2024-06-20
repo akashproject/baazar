@@ -13,15 +13,15 @@
                         <div class="w-25 text-center"><strong>QUANTITY</strong></div>
                         <div class="w-25 text-center"><strong>SUB-TOTAL</strong></div>
                     </div>
-                    <div class="d-flex align-items-center border-bottom p-2 cart-item product-card">
+                    <div *ngFor="let item of cartItem;" class="d-flex align-items-center border-bottom p-2 cart-item product-card">
                         <div class="w-50 d-flex align-items-center">
                             <i class="fa-regular fa-circle-xmark"></i>
-                            <img src="/assets/images/teacher/T1.png" alt="Product Image" class="me-2 product-img">
-                            <span>Meet CA ILLA BHATI SHARMA</span>
+                            <img src="{{mediaURL+item.avator}}" alt="Product Image" class="me-2 product-img">
+                            <span>{{item.course}}</span>
                         </div>
                        
                         <div class="w-25 price">
-                            <del>Rs.99</del> Rs.70
+                            <del>Rs.{{ item.price+100 }}</del> Rs.{{ item.price }}
                         </div>
                         <div class="w-25 quantity">
                             <div class="input-group">
@@ -30,24 +30,8 @@
                                 <button class="btn" type="button">+</button>
                             </div>
                         </div>
-                        <div class="w-25 sub-total">Rs.70</div>
+                        <div class="w-25 sub-total">Rs.{{ item.price }}</div>
                         
-                    </div>
-                    <div class="d-flex align-items-center border-bottom p-2 cart-item product-card">
-                        <div class="w-50 d-flex align-items-center">
-                            <i class="fa-regular fa-circle-xmark ico"></i>
-                            <img src="/assets/images/teacher/T1.png" alt="Product Image" class="me-2 product-img">
-                            <span>Meet CA ILLA BHATI SHARMA</span>
-                        </div>
-                        <div class="w-25 price">Rs.250</div>
-                        <div class="w-25 quantity">
-                            <div class="input-group">
-                                <button class="btn" type="button">−</button>
-                                <input type="text" class="form-control text-center" value="03">
-                                <button class="btn" type="button">+</button>
-                            </div>
-                        </div>
-                        <div class="w-25 sub-total">Rs.750</div>
                     </div>
                 </div>
                 <div class="row mb-3 mt-3">
