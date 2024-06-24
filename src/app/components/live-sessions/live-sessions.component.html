@@ -17,7 +17,12 @@
                                     <p class="followers"><span class="count">10K+ </span>Followers</p>
                                     <p class="followers"> <span class="count">5y+</span> Experience</p>
                                     <button type="button" class="btn f-o">Futures and Options</button>
-                                    <a href="#" class="btn btn-primary buy-now">Buy at ₹{{session.price}} + GST</a>
+                                    <div>
+                                        <p class="imprima-regular price">
+                                            Buy at Rs.{{ session.price }} + GST
+                                        </p>
+                                    </div>
+                                    <button href="#" class="btn btn-primary buy-now" (click)="cart.addToCart($event,session)">{{cart.cartBtnLabel}}</button>
                                 </div>
                             </div>
                         </div>

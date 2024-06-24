@@ -11,6 +11,7 @@ import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { TrainerBioComponent } from './pages/trainer-bio/trainer-bio.component';
 import { TrainerListComponent } from './pages/trainer-list/trainer-list.component';
+import { DashboardComponent  } from './pages/dashboard/dashboard.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'thank-you', component: ThankYouComponent },
   { path: 'orders', component: OrdersComponent },
+  { path: 'dashboard', component: DashboardComponent },
 ];
 
 @NgModule({

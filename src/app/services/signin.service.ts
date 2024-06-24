@@ -18,7 +18,11 @@ export class SigninService {
   constructor(private http: HttpClient) { }
 
     signinUser(signinUser : {}) {
-      return this.http.post(`${environment.apiUrl}/login`, { signinUser });
+      return this.http.post(`${environment.apiUrl}login`, { signinUser });
+    }
+
+    signupUser(signupUser : {}) {
+      return this.http.post(`${environment.apiUrl}signup`, { signupUser });
     }
   
     getCurrentUser() {
@@ -42,10 +46,8 @@ export class SigninService {
     getFlag(key:any){
       return localStorage.getItem(key) || null;
     }
-
   
     updateUser(name:string, mobile:string, homestate:string, gender:string, cast:string, city:string, physical_status:string, email:string, neet:string, access_token:string){
-  
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${access_token}`
@@ -59,14 +61,12 @@ export class SigninService {
     // signup methods --
   
     sendotp(mobile : string){
-  
       console.log(mobile);
       return this.http.post(`${environment.apiUrl}/send-otp`, {mobile : mobile});
     }
     
   
     uploadPhofilephoto(access_token : string,param: any){
-      console.log("here akky",param);
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${access_token}`
@@ -76,7 +76,7 @@ export class SigninService {
   
     loginByGoogle(user_detail:any):any {
       console.log("before post",user_detail.email);
-      
+
       let loginData : any = {};
       loginData.email = user_detail.email;
       loginData.name = user_detail.name;

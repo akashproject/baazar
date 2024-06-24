@@ -11,8 +11,11 @@ import { Router } from '@angular/router';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  public cartItem : any = [];
+  public cartItem : any = (localStorage.getItem('item') === null)?localStorage.getItem('item'):JSON.parse(localStorage.getItem('item') || '{}');
   mediaURL: any = '';
+  cartPrice : any = (localStorage.getItem('cartPrice') !== null)?localStorage.getItem('cartPrice'):0;
+  cartPriceWithGst : any = 0;
+  taxAmount : number = 0;
   constructor(
     private router: Router,
     private api: ApiService,
@@ -20,14 +23,29 @@ export class CartComponent {
     public cart: CartService,
     private toastr: ToastrService) {
       this.mediaURL = environment.mediaURL;
+      
     }
 
     ngOnInit(): void {
-      this.cartItem.push(JSON.parse(localStorage.getItem('item') || '{}'));      
+      console.log(this.cartPrice);
+      this.totalCartPrice()
     }
 
     getItemFromCart() {
       
     }
+
+    totalCartPrice() {
+      let taxRate  : number = 18;
+      this.taxAmount = this.cartPrice*taxRate/parseInt("100");
+      this.cartPriceWithGst = parseInt(this.cartPrice)+this.taxAmount;
+      console.log(this.cartPriceWithGst);
+      
+    }
+
+    removeFromCart(event : any) {
+      event.target.parentNode.parentNode.parentNode.remove();
+    }
+
 
 }

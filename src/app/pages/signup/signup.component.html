@@ -21,31 +21,40 @@
             <p class="font-label font-poppins">For Teachers or Students.</p>
             <div class="col-md-12 d-flex align-items-center justify-content-center">
               <div class="signup-form w-100">
-                <form>
+                <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                   <div class="row">
                   <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
-                    <label for="firstName" class="font-label font-poppins mb-2">First name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="First name">
+                    <label for="firstname" class="font-label font-poppins mb-2">First name</label>
+                    <input formControlName="firstname" type="text" class="form-control" id="firstName" placeholder="Enter Your First name">
+                    <div class="error" *ngIf="signupForm.get('firstname').invalid && signupForm.get('firstname').touched">
+                      First Name is required.
+                    </div>
                   </div>
                   <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
-                    <label for="lastName" class="font-label font-poppins mb-2">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                    <label for="lastname" class="font-label font-poppins mb-2">Last name</label>
+                    <input formControlName="lastname"  type="text" class="form-control" id="lastName" placeholder="Enter Your Last name">
+                    <div  class="error" *ngIf="signupForm.get('lastname').invalid && signupForm.get('lastname').touched">
+                      Last name is required.
+                    </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
-                    <label for="email" class="font-label font-poppins mb-2">Email or phone number</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email or phone number">
+                    <label for="email" class="font-label font-poppins mb-2">Email Address</label>
+                    <input formControlName="email" type="email" autocomplete="off" class="form-control" id="email" placeholder="Enter Your Email Address">
+                    <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+                      <div  class="error" *ngIf="signupForm.get('email').errors?.required">Email is required.</div>
+                    </div>
                   </div>
                   <div class="form-group col-md-12 col-lg-12 col-xl-6 mt-3">
-                    <label for="dob" class="font-label font-poppins mb-2">Date of birth</label>
-                    <input type="text" class="form-control" id="dob" placeholder="Date of birth">
+                    <label for="mobile" class="font-label font-poppins mb-2">Mobile Number</label>
+                    <input formControlName="mobile" type="number" class="form-control" id="mobile" placeholder="Enter Your Mobile Number">
                   </div>
                 </div>
                   <div class="row"> 
                   <div class="font-label font-poppins form-group col-md-12 col-lg-12 col-xl-6 mt-3">
                     <label for="password" class="font-label font-poppins mb-2">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
                   </div>
                   <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
                     <label for="confirmPassword" class="font-label font-poppins  mb-2">Confirm password</label>

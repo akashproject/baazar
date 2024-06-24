@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -31,6 +32,7 @@ import { MoreUpcomingSessionComponent } from './components/more-upcoming-session
 import { TrainerBioComponent } from './pages/trainer-bio/trainer-bio.component';
 import { TrainerListComponent } from './pages/trainer-list/trainer-list.component';
 import { InnerHeaderComponent } from './components/inner-header/inner-header.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -61,12 +63,14 @@ import { InnerHeaderComponent } from './components/inner-header/inner-header.com
     MoreUpcomingSessionComponent,
     TrainerBioComponent,
     TrainerListComponent,
-    InnerHeaderComponent
+    InnerHeaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [HttpClientModule],

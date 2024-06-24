@@ -19,18 +19,17 @@
             <div class="p-70">
               <h3 class="wlcm font-poppins">Hello! Welcome back</h3>
               <p class="font-label font-poppins">Log in with your data that you entered during Your registration</p>
-              <form (ngSubmit)="login()">
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
                     <div class="form-group mt-3">
                       <label for="mobile" class="font-label font-poppins">Mobile Number</label>
-                      <input type="mobile" class="form-control box-shadow mt-2" id="mobile" placeholder="mobile">
+                      <input formControlName="mobile" type="email" class="form-control box-shadow mt-2" id="mobile" placeholder="Enter Mobile Number">
                       <div *ngIf="loginForm.get('mobile')?.invalid && (loginForm.get('mobile')?.touched || loginForm.get('mobile')?.dirty)">
-                        <small *ngIf="loginForm.get('mobile')?.errors?.['required']">Mobile number is required.</small>
-                        <small *ngIf="loginForm.get('mobile')?.errors?.['pattern']">Mobile number must be 10 digits.</small>
+                        <small *ngIf="loginForm.get('mobile')?.errors?.['required']">Email is required.</small>
                       </div>
                     </div>
                     <div class="form-group mt-3">
                       <label for="password" class="font-label font-poppins">Password</label>
-                      <input type="password" class="form-control box-shadow mt-2" id="password" placeholder="Password">
+                      <input formControlName="password" type="password" class="form-control box-shadow mt-2" id="password" placeholder="Password">
                       <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
                         <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
                         <small *ngIf="loginForm.get('password')?.errors?.['minLength']">Password must be at least 8 characters long.</small>

@@ -4,7 +4,7 @@
 <app-notification></app-notification>
 <div class=" teacher-our-tutors">
     <div class="container profile-card p-3 mb-5">
-        <div class="row g-0" *ngFor="let tutor of tutors;">
+        <div class="row my-3 trainer-grid" *ngFor="let tutor of tutors;">
             <div class="col-lg-3 col-md-4 col-sm-12 d-flex justify-content-center">
                 <a (click)="gotoTrainerBio(tutor.id)">
                     <img src="{{mediaURL+tutor.avator}}" class="card-img profile-img img-fluid" alt="Profile Image">
@@ -21,26 +21,26 @@
                     </div>
                     <div class="card-header bg-white item mt-4 p-4">
                         <div class="card-text">
-                            <div class="row mb-3">
-                                <div class=" col-lg-6 col-sm-12 col-md-12">
-                                    <p class="day-time m-0 p-0">Monday</p>
-                                    <p class="day-time">9 am to 11:30 am</p>
-                                    <p class="price"><a href="#">BUY at Rs. 250</a></p>
-                                </div>
-                                <div class="col-lg-6 col-sm-12 d-flex justify-content-end">
-                                    <p class="followers"><span class="count">10K+ </span>Followers</p>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class=" col-lg-6 col-sm-12">
-                                    <p class="day-time">Wednesday</p>
-                                    <p class="day-time">11:30 am to 1:30 pm</p>
-                                    <p class="price"><a href="#">BUY at Rs. 250</a></p>
-                                </div>
-                                <div class=" col-lg-6  col-sm-12 d-flex justify-content-end">
-                                    <a href="#" class="btn btn-success btn-buy">Buy</a>
+                            <div *ngIf="tutor.sessions.length > 0" >
+                                <div class="row mb-3" *ngFor="let session of tutor.sessions;">
+                                    <div class=" col-lg-6 col-sm-12 col-md-12">
+                                        <p class="day-time m-0 p-0">{{session.day}}</p>
+                                        <p class="day-time">{{session.start_time}} to {{session.end_time}}</p>
+                                        <p class="price"><a href="#">BUY at Rs. {{session.teacher_fee}}</a></p>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12 d-flex justify-content-end">
+                                        <div class=" col-lg-6  col-sm-12 d-flex justify-content-end">
+                                            <a href="javascript:void(0)" class="btn btn-success btn-buy" (click)="cart.addToCart($event,session)">{{cart.cartBtnLabel}}</a>
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div *ngIf="tutor.sessions.length <= 0" >
+                                <div class="row mb-3" >
+                                        <h3> No Session Avilable for now</h3>
+                                </div>
+                            </div>        
                         </div>
                     </div>
                 </div>

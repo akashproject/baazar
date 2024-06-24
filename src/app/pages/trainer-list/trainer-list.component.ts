@@ -4,7 +4,7 @@ import { ApiService } from '../../services/api.service';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
-
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-trainer-list',
   templateUrl: './trainer-list.component.html',
@@ -18,6 +18,7 @@ export class TrainerListComponent {
     private router: Router,
     private api: ApiService,
     public util: UtilService,
+    public cart: CartService,
     private toastr: ToastrService) {
       this.mediaURL = environment.mediaURL;
     }

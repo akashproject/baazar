@@ -40,18 +40,12 @@ export class LoginComponent implements OnInit{
 
   login() {
     if (this.loginForm.valid) {
-      const mobile = this.loginForm.get('mobile')?.value;
-      const password = this.loginForm.get('password')?.value;
-      // Implement your login logic here
-      console.log('Mobile:', mobile);
-      console.log('Password:', password);
-      this.signinservice.signinUser(this.loginForm).subscribe(data => {
+      this.signinservice.signinUser(this.loginForm.value).subscribe(data => {
         this.signinservice.setToken(data);
         this.token_data = data;
         this.token = this.token_data.access_token;
         console.log(this.token);
-  
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
   
       }, (err: any) => {
         // err = err
