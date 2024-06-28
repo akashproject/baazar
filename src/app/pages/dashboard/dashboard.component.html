@@ -1,3 +1,24 @@
 <app-inner-header></app-inner-header>
-<p>dashboard works!</p>
+<app-search></app-search>
+<app-online-course></app-online-course>
+<div class="container mt-4">
+    <ul class="nav nav-tabs justify-content-around" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="upcoming-tab" data-toggle="tab" href="#upcoming" role="tab" aria-controls="upcoming" aria-selected="true">Upcoming Session</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="previous-tab" data-toggle="tab" href="#previous" role="tab" aria-controls="previous" aria-selected="false">Previous Session</a>
+        </li>
+    </ul>
+    <div class="tab-content mt-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
+            <!-- Upcoming Session content -->
+            <app-coming-sessions></app-coming-sessions>
+        </div>
+        <div class="tab-pane fade" id="previous" role="tabpanel" aria-labelledby="previous-tab">
+            <!-- Previous Session content -->
+            <app-coming-sessions></app-coming-sessions>
+        </div>
+    </div>
+</div>
 <app-footer></app-footer>

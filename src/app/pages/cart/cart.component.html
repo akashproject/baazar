@@ -9,26 +9,26 @@
             <div class="d-flex flex-column">
                 <div class="d-flex bg-color p-2">
                     <div class="w-50"><strong>PRODUCTS</strong></div>
-                    <div class="w-25 text-center"><strong>PRICE</strong></div>
+                    <div class="w-25 text-center"><strong>Teacher Fee</strong></div>
                     <div class="w-25 text-center"><strong>QUANTITY</strong></div>
-                    <div class="w-25 text-center"><strong>SUB-TOTAL</strong></div>
-                </div>
+                    <div class="w-25 text-center"><strong>Platform Fee</strong></div>
+                </div>  
                 <div *ngFor="let item of cartItem;" class="d-flex align-items-center border-bottom p-2 cart-item product-card">
                     <div class="w-50 d-flex align-items-center">
-                        <a (click)="removeFromCart($event)" ><i class="fa-regular fa-circle-xmark"></i></a>
+                        <a (click)="removeFromCart($event,item.batch_id)" ><i class="fa-regular fa-circle-xmark"></i></a>
                         <img src="{{mediaURL+item.avator}}" alt="Product Image" class="me-2 product-img">
                         <span>{{item.course}}</span>
                     </div>
                     
                     <div class="w-25 price">
-                        <del>Rs.{{ item.price+100 }}</del> Rs.{{ item.price }}
+                        <del>Rs.{{ item.teacher_fee+100 }}</del> Rs.{{ item.teacher_fee }}
                     </div>
                     <div class="w-25 quantity">
                         <div class="input-group">
                             <input type="text" class="form-control text-center" value="01" readonly>
                         </div>
                     </div>
-                    <div class="w-25 sub-total">Rs.{{ item.price }}</div>
+                    <div class="w-25 sub-total">Rs.{{ item.commission_amount }}</div>
                     
                 </div>
             </div>

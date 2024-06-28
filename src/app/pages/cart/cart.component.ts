@@ -38,13 +38,25 @@ export class CartComponent {
     totalCartPrice() {
       let taxRate  : number = 18;
       this.taxAmount = this.cartPrice*taxRate/parseInt("100");
-      this.cartPriceWithGst = parseInt(this.cartPrice)+this.taxAmount;
-      console.log(this.cartPriceWithGst);
-      
+      this.cartPriceWithGst = parseInt(this.cartPrice)+this.taxAmount;      
     }
 
-    removeFromCart(event : any) {
-      event.target.parentNode.parentNode.parentNode.remove();
+    removeFromCart(event : any, batch_id:any) {
+      console.log(this.cartItem);
+
+      for (const key in this.cartItem) {
+        if (Object.prototype.hasOwnProperty.call(this.cartItem, key)) {
+          if(batch_id == this.cartItem[key].batch_id) {
+            console.log(this.cartItem[key]);
+            this.cartPrice = this.cartPrice - this.cartItem[key].price
+            localStorage.setItem("cartPrice",this.cartPrice)
+            this.cartItem.pop(this.cartItem[key]);
+            this.totalCartPrice()
+          }
+        }
+      }
+
+      localStorage.setItem("item",JSON.stringify(this.cartItem))
     }
 
 

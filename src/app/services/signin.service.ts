@@ -28,6 +28,16 @@ export class SigninService {
     getCurrentUser() {
       return localStorage.getItem(this.JWT_KEY) || null;
     }
+
+    getUserData(access_token : string) {
+     const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${access_token}`
+     })
+      return this.http.get(`${environment.apiUrl}user`, {headers : headers});
+  
+    }
+  
   
     logout(){
       localStorage.removeItem(this.JWT_KEY);
