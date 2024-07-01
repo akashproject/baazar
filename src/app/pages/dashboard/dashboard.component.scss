@@ -1,0 +1,26 @@
+/* Tab Navigation and Content Styling */
+
+/* Styling for the nav tabs */
+.nav-tabs .nav-item {
+    margin-bottom: 0;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    font-weight: bold;
+    transition: border-color 0.3s;
+    font-size: 28px;
+    font-family: Inter;
+    padding: 10px;
+
+}
+
+.nav-tabs .nav-link.active {
+    border-color: #2DA5F3;
+    color: #2DA5F3;
+}
+

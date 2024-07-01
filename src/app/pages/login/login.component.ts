@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit{
       this.signinservice.signinUser(this.loginForm.value).subscribe(data => {
         this.signinservice.setToken(data);
         this.token_data = data;
-        this.token = this.token_data.access_token;
-        console.log("I am here");
         this.signinservice.getUserData(this.token_data.access_token).subscribe((res: any) => {
           localStorage.setItem("user", JSON.stringify(res));
           this.router.navigate(['/dashboard']);

@@ -46,7 +46,7 @@ export class SigninService {
     }
   
     setToken(data : any){
-      localStorage.setItem(this.JWT_KEY, data);
+      localStorage.setItem(this.JWT_KEY, JSON.stringify(data));
     }
   
     setFlag(key:any, value:any){
