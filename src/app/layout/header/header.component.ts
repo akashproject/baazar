@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public user : any = (localStorage.getItem('user') === null)?localStorage.getItem('user'):JSON.parse(localStorage.getItem('user') || '{}');
-  public token : any = (localStorage.getItem('access_token') === null)?localStorage.getItem('access_token'):JSON.parse(localStorage.getItem('access_token') || '{}');
+  public token : any = (localStorage.getItem('access_token') !== null)?JSON.parse(localStorage.getItem('access_token') || '{}'):null;
   constructor(
     private router: Router,
     private api: ApiService,
