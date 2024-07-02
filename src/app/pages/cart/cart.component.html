@@ -17,7 +17,7 @@
                     <div class="w-50 d-flex align-items-center">
                         <a (click)="removeFromCart($event,item.batch_id)" ><i class="fa-regular fa-circle-xmark"></i></a>
                         <img src="{{mediaURL+item.avator}}" alt="Product Image" class="me-2 product-img">
-                        <span>{{item.course}}</span>
+                        <span>{{item.expertise}} Live Session</span>
                     </div>
                     
                     <div class="w-25 price">
@@ -44,21 +44,21 @@
                     <h5 class="card-title">Card Totals</h5>
                 <div class="flxx_wrap">
                     <div class="price_nm">
-                    <p>Sub-total</p>
-                    <p>Extra Charge</p>
+                    <p>Session Price</p>
+                    <p>Platform Fee</p>
                     <p>Discount</p>
                     <p>GST 18%</p>
                     </div>
                 <div class="price_1">
-                    <span> ₹{{cartPrice}}/-</span>
-                    <span>Free</span>
+                    <span> ₹{{ cart.sessionPrice }}/-</span>
+                    <span>₹{{ cart.plaformFee }}/-</span>
                     <span>₹ 00 /-</span>
                     <span>₹{{ taxAmount }}/-</span>
                     </div>
                 </div>
                 <div class="total_wrap">
                     <h5>Total</h5>
-                    <span>₹{{ cartPriceWithGst }}/- </span>
+                    <span>₹{{ payableAmount }}/- </span>
                 </div>
                     <button class="btn btn-success btn-checkout" routerLink='/checkout'>PROCEED TO CHECKOUT<i class="fa-solid fa-arrow-right"></i></button>
                 </div>

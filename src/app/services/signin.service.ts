@@ -17,12 +17,12 @@ export class SigninService {
   private user = new BehaviorSubject(null);
   constructor(private http: HttpClient) { }
 
-    signinUser(signinUser : {}) {
-      return this.http.post(`${environment.apiUrl}login`, { signinUser });
+    signinUser(signinUser : any) {      
+      return this.http.post(`${environment.apiUrl}login`, signinUser);
     }
 
     signupUser(signupUser : {}) {
-      return this.http.post(`${environment.apiUrl}signup`, { signupUser });
+      return this.http.post(`${environment.apiUrl}signup`, signupUser);
     }
   
     getCurrentUser() {

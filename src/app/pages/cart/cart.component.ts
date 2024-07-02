@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  public cartItem : any = (localStorage.getItem('item') === null)?localStorage.getItem('item'):JSON.parse(localStorage.getItem('item') || '{}');
+  cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):null;
   mediaURL: any = '';
-  cartPrice : any = (localStorage.getItem('cartPrice') !== null)?localStorage.getItem('cartPrice'):0;
-  cartPriceWithGst : any = 0;
-  taxAmount : number = 0;
+  cartPrice : any = (localStorage.getItem('totalPrice') !== null)?localStorage.getItem('totalPrice'):0;
+  payableAmount : any = (localStorage.getItem('payableAmount') !== null)?localStorage.getItem('payableAmount'):0;
+  taxAmount : any = (localStorage.getItem('taxAmount') !== null)?localStorage.getItem('taxAmount'):0;
   constructor(
     private router: Router,
     private api: ApiService,
@@ -27,8 +27,7 @@ export class CartComponent {
     }
 
     ngOnInit(): void {
-      console.log(this.cartPrice);
-      this.totalCartPrice()
+      
     }
 
     getItemFromCart() {
@@ -36,9 +35,7 @@ export class CartComponent {
     }
 
     totalCartPrice() {
-      let taxRate  : number = 18;
-      this.taxAmount = this.cartPrice*taxRate/parseInt("100");
-      this.cartPriceWithGst = parseInt(this.cartPrice)+this.taxAmount;      
+      
     }
 
     removeFromCart(event : any, batch_id:any) {

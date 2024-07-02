@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss'
 })
-export class CheckoutComponent {
+export class CheckoutComponent  implements OnInit{
   public cartItem : any = (localStorage.getItem('item') === null)?localStorage.getItem('item'):JSON.parse(localStorage.getItem('item') || '{}');
   mediaURL: any = '';
   cartPrice : any = (localStorage.getItem('cartPrice') !== null)?localStorage.getItem('cartPrice'):0;
@@ -27,7 +27,9 @@ export class CheckoutComponent {
     }
 
 
-
+    ngOnInit(): void {
+      console.log(this.cartItem);
+    }
     
     
 }
