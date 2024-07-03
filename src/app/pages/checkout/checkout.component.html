@@ -116,22 +116,22 @@
                             
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Total Session Price
-                                <span>$450.00</span>
+                                <span>₹{{sessionPrice}}/-</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Total Platform Fee
-                                <span>$0</span>
+                                <span>₹{{plaformFee}}/-</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <strong>TOTAL</strong>
-                                <strong>$450.00</strong>
+                                <strong>₹{{totalPrice}}/-</strong>
                             </li>
                         </ul>
                         <div class="form-check mt-3">
                             <input type="checkbox" class="form-check-input" id="newsletter">
                             <label class="form-check-label" for="newsletter">Register to the Newsletter.</label>
                         </div>
-                        <button type="button" class="btn btn-primary btn-block mt-3">Confirm and Pay</button>
+                        <button type="button" class="btn btn-primary btn-block mt-3" (click)="createOrder()">Confirm and Pay</button>
                     </div>
                 </div>
             </div>
