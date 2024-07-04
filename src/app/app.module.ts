@@ -33,6 +33,7 @@ import { TrainerBioComponent } from './pages/trainer-bio/trainer-bio.component';
 import { TrainerListComponent } from './pages/trainer-list/trainer-list.component';
 import { InnerHeaderComponent } from './components/inner-header/inner-header.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     TrainerBioComponent,
     TrainerListComponent,
     InnerHeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    PaymentSuccessComponent
   ],
   imports: [
     BrowserModule,

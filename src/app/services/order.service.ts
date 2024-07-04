@@ -25,4 +25,16 @@ export class OrderService {
     const params = this.api.JSON_to_URLEncoded(createOrder);
     return this.http.post(`${environment.apiUrl}create-order`, params, header);
   }
+
+  createComplete(confirmOrder:any){
+    let token = JSON.parse(localStorage.getItem('access_token') || '{}')
+    
+    const header = {
+      headers: new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+      .set('Authorization', `Bearer ${token.access_token}`),
+    };
+    const params = this.api.JSON_to_URLEncoded(confirmOrder);
+    return this.http.post(`${environment.apiUrl}payment`, params, header);
+  }
 }

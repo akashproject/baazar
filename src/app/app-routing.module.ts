@@ -9,6 +9,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { TrainerBioComponent } from './pages/trainer-bio/trainer-bio.component';
 import { TrainerListComponent } from './pages/trainer-list/trainer-list.component';
 import { DashboardComponent  } from './pages/dashboard/dashboard.component';
@@ -22,11 +23,10 @@ const routes: Routes = [
   { path: 'trainer-bio/:id', component: TrainerBioComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'thank-you', component: ThankYouComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path : "dashboard",component : DashboardComponent,
-    canActivate: [AuthGuard] 
-  }
+  { path: 'thank-you', component: ThankYouComponent,canActivate: [AuthGuard] },
+  { path: 'orders', component: OrdersComponent,canActivate: [AuthGuard] },
+  { path: 'payment-success', component: PaymentSuccessComponent,canActivate: [AuthGuard] },
+  { path: 'dashboard',component : DashboardComponent,canActivate: [AuthGuard] }
 ];
 
 @NgModule({

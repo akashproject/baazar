@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
-export class CartComponent {
+export class CartComponent implements OnInit{
   cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):null;
   mediaURL: any = '';
   cartPrice : any = (localStorage.getItem('totalPrice') !== null)?localStorage.getItem('totalPrice'):0;
