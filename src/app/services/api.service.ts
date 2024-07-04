@@ -105,10 +105,7 @@ export class ApiService {
   }
   
   get(url : any) {
-    let token = environment.authToken;
-    if(this.util.userInfo) {
-      token = this.util.userInfo.token;
-    }
+    
     const header = {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/x-www-form-urlencoded'),
@@ -117,8 +114,14 @@ export class ApiService {
     return this.http.get(this.apiUrl + url, header);
   }
 
-  externalGet(url : any) {
-    return this.http.get(url);
+  getWithAuth(url : any) {
+    let token = JSON.parse(localStorage.getItem('access_token') || '{}')
+    const header = {
+      headers: new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+      .set('Authorization', `Bearer ${token.access_token}`),
+    };
+    return this.http.get(this.apiUrl + url, header);
   }
 
   httpGet(url : any, key : any) {

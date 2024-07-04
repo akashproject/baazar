@@ -16,15 +16,44 @@
     <div class="tab-content mt-3" id="myTabContent">
         <div class="tab-pane fade show active" id="live" role="tabpanel" aria-labelledby="live">
             <!-- Upcoming Session content -->
-            <app-live-sessions></app-live-sessions>
+            
         </div>
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
             <!-- Upcoming Session content -->
-            <app-coming-sessions></app-coming-sessions>
+            <div class="row">
+                <div *ngFor="let nextSession of nextSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card profile-card">
+                        <div class="profile-img-placeholder position-relative">
+                            <img src="{{mediaURL+nextSession.avator}}" alt="Dianne Russell" class="card-img-top">
+                            <div class="ribbon">SEBI</div>
+                        </div>
+                        <div class="card-body text-center position-relative">
+                            <div class="card-title up-se-title">
+                                <h5>{{ nextSession.trainer }}</h5>
+                                <p>{{ nextSession.experience }}+ years of experience</p>
+                            </div>
+                            <p class="card-text daily-stock">
+                                <span>{{nextSession.expertise}}</span>
+                                <span class="imprima-regular"> 10k+ Followers</span>
+                            </p>
+                            <div class="additional-info row">
+                                <p class="col-md-6 imprima-regular price">Starts at Rs.{{ nextSession.price }} + GST</p>
+                                <div class="time col-md-6 row imprima-regular">
+                                    <p class="col-md-6"><i class="fas fa-clock"></i>{{nextSession.duration}} min</p>
+                                    <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
+                                </div>
+                            </div>
+                            <div class="row p-3">
+                                <button href="#" class="btn btn-primary buy-now"> Recording Video </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="previous" role="tabpanel" aria-labelledby="previous-tab">
             <!-- Previous Session content -->
-            <app-coming-sessions></app-coming-sessions>
+            
         </div>
     </div>
 </div>
