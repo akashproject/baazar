@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  public sessions : any = [];
+  public liveSessions : any = [];
   public previousSessions : any = [];
   public nextSessions : any = [];
   mediaURL: any = '';
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
 
   getLiveSessions(){
     this.api.getWithAuth("live-purchased-sessions").subscribe((data: any) => {
-      this.sessions = data;
+      this.liveSessions = data;
     });
   }
 
@@ -48,4 +48,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  joinStreamNow(id:any) {
+    id = window.btoa(id);
+    this.router.navigate([]).then(result => {  window.open('/start-session/'+id, '_blank'); });;
+  }
 }

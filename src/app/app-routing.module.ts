@@ -13,6 +13,7 @@ import { PaymentSuccessComponent } from './pages/payment-success/payment-success
 import { TrainerBioComponent } from './pages/trainer-bio/trainer-bio.component';
 import { TrainerListComponent } from './pages/trainer-list/trainer-list.component';
 import { DashboardComponent  } from './pages/dashboard/dashboard.component';
+import { StartSessionComponent } from './pages/start-session/start-session.component';
 import { AuthGuard } from "./guard/auth.guard";
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'thank-you', component: ThankYouComponent,canActivate: [AuthGuard] },
   { path: 'orders', component: OrdersComponent,canActivate: [AuthGuard] },
   { path: 'payment-success', component: PaymentSuccessComponent,canActivate: [AuthGuard] },
-  { path: 'dashboard',component : DashboardComponent,canActivate: [AuthGuard] }
+  { path: 'dashboard',component : DashboardComponent,canActivate: [AuthGuard] },
+  { path: 'start-session/:id',component : StartSessionComponent,canActivate: [AuthGuard] }
 ];
 
 @NgModule({

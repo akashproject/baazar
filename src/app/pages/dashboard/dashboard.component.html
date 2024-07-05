@@ -1,6 +1,4 @@
 <app-inner-header></app-inner-header>
-<app-search></app-search>
-<app-online-course></app-online-course>
 <div class="container mt-4">
     <ul class="nav nav-tabs justify-content-around" id="myTab" role="tablist">
         <li class="nav-item">
@@ -15,12 +13,48 @@
     </ul>
     <div class="tab-content mt-3" id="myTabContent">
         <div class="tab-pane fade show active" id="live" role="tabpanel" aria-labelledby="live">
-            <!-- Upcoming Session content -->
-            
+            <!-- Live Session content -->
+            <div class="row" *ngIf="this.liveSessions.length > 0">
+                <div *ngFor="let liveSession of liveSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card profile-card">
+                        <div class="profile-img-placeholder position-relative">
+                            <img src="{{mediaURL+liveSession.avator}}" alt="Dianne Russell" class="card-img-top">
+                            <div class="ribbon">SEBI</div>
+                        </div>
+                        <div class="card-body text-center position-relative">
+                            <div class="card-title up-se-title">
+                                <h5>{{ liveSession.trainer }}</h5>
+                                <p>{{ liveSession.experience }}+ years of experience</p>
+                            </div>
+                            <p class="card-text daily-stock">
+                                <span>{{liveSession.expertise}}</span>
+                                <span class="imprima-regular"> 10k+ Followers</span>
+                            </p>
+                            <div class="additional-info row">
+                                <p class="col-md-6 imprima-regular price">Starts at Rs.{{ liveSession.price }} + GST</p>
+                                <div class="time col-md-6 row imprima-regular">
+                                    <p class="col-md-6"><i class="fas fa-clock"></i>{{liveSession.duration}} min</p>
+                                    <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
+                                </div>
+                            </div>
+                            <div class="row p-3">
+                                <button href="#" class="btn btn-primary buy-now" (click)="joinStreamNow(liveSession.id)"> Join Session Now </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="this.liveSessions.length <= 0">
+                <div class="col-12 text-center">
+                    <div class="my-5" >
+                        <h3> No Record Found </h3>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
             <!-- Upcoming Session content -->
-            <div class="row">
+            <div class="row" *ngIf="this.nextSessions.length > 0">
                 <div *ngFor="let nextSession of nextSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                     <div class="card profile-card">
                         <div class="profile-img-placeholder position-relative">
@@ -44,16 +78,59 @@
                                 </div>
                             </div>
                             <div class="row p-3">
-                                <button href="#" class="btn btn-primary buy-now"> Recording Video </button>
+                                <button href="#" class="btn btn-primary buy-now"> Start Stream At <br>{{nextSession.day}}, {{nextSession.start_time}} </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="this.nextSessions.length <= 0">
+                <div class="col-12 text-center">
+                    <div class="my-5" >
+                        <h3> No Record Found </h3>
                     </div>
                 </div>
             </div>
         </div>
         <div class="tab-pane fade" id="previous" role="tabpanel" aria-labelledby="previous-tab">
             <!-- Previous Session content -->
-            
+            <div class="row" *ngIf="this.previousSessions.length > 0">
+                <div *ngFor="let previousSession of previousSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                    <div class="card profile-card">
+                        <div class="profile-img-placeholder position-relative">
+                            <img src="{{mediaURL+previousSession.avator}}" alt="Dianne Russell" class="card-img-top">
+                            <div class="ribbon">SEBI</div>
+                        </div>
+                        <div class="card-body text-center position-relative">
+                            <div class="card-title up-se-title">
+                                <h5>{{ previousSession.trainer }}</h5>
+                                <p>{{ previousSession.experience }}+ years of experience</p>
+                            </div>
+                            <p class="card-text daily-stock">
+                                <span>{{previousSession.expertise}}</span>
+                                <span class="imprima-regular"> 10k+ Followers</span>
+                            </p>
+                            <div class="additional-info row">
+                                <p class="col-md-6 imprima-regular price">Starts at Rs.{{ previousSession.price }} + GST</p>
+                                <div class="time col-md-6 row imprima-regular">
+                                    <p class="col-md-6"><i class="fas fa-clock"></i>{{previousSession.duration}} min</p>
+                                    <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
+                                </div>
+                            </div>
+                            <div class="row p-3">
+                                <button href="#" class="btn btn-primary buy-now"> Recording Video </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="this.previousSessions.length <= 0">
+                <div class="col-12 text-center">
+                    <div class="my-5" >
+                        <h3> No Record Found </h3>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
