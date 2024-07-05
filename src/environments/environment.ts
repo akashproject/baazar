@@ -1,9 +1,9 @@
 export const environment = {
   production: false,
-  baseURL: 'https://conjugation.in/api/index.php/',
-  mediaURL: 'https://conjugation.in/api/uploads/',
-  uservault: 'https://conjugation.in/api/investments/',
-  apiUrl: 'http://localhost/baazar/panel/api/',
+  baseURL: 'https://devsov.baazar.live/panel/api/index.php/',
+  mediaURL: 'https://devsov.baazar.live/panel/api/uploads/',
+  uservault: 'https://devsov.baazar.live/panel/api/investments/',
+  apiUrl: 'https://devsov.baazar.live/panel/api/',
   general: {
     symbol: '$',
     code: 'USD',
