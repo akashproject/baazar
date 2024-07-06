@@ -39,18 +39,18 @@ export class LoginComponent implements OnInit{
   }
 
   login() {
+    
     if(this.loginForm.valid) {
-      this.signinservice.signinUser(this.loginForm.value).subscribe(data => {
+      this.signinservice.signinUser(this.loginForm.value).subscribe((data: any) => {
+        console.log(data);
         this.signinservice.setToken(data);
         this.token_data = data;
         this.signinservice.getUserData(this.token_data.access_token).subscribe((res: any) => {
           localStorage.setItem("user", JSON.stringify(res));
           this.router.navigate(['/dashboard']);
          });
-      }, (err: any) => {
-        // err = err
-        console.log(err);
-        // this.displayToastFailure();
+      },(error) => {
+        this.toastr.error('Please enter valid mobile no and password','Invalid Credentials');
       });
 
     }

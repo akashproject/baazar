@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -35,46 +36,16 @@ import { InnerHeaderComponent } from './components/inner-header/inner-header.com
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { StartSessionComponent } from './pages/start-session/start-session.component';
-
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    SignupComponent,
-    SessionsComponent,
-    TrainersComponent,
-    TrainerComponent,
-    CartComponent,
-    CheckoutComponent,
-    ThankYouComponent,
-    OrdersComponent,
-    OrderComponent,
-    ResetPasswordComponent,
-    HeaderComponent,
-    FooterComponent,
-    LiveSessionsComponent,
-    ComingSessionsComponent,
-    FeaturedVideoComponent,
-    BeforeFooterComponent,
-    SearchComponent,
-    OnlineCourseComponent,
-    NotificationComponent,
-    TodaysUpcomingSessionComponent,
-    TomorrowUpcomingSessionComponent,
-    MoreUpcomingSessionComponent,
-    TrainerBioComponent,
-    TrainerListComponent,
-    InnerHeaderComponent,
-    DashboardComponent,
-    PaymentSuccessComponent,
-    StartSessionComponent
+    AppComponent,HomeComponent,LoginComponent,SignupComponent,SessionsComponent,TrainersComponent,TrainerComponent,CartComponent,CheckoutComponent,ThankYouComponent,OrdersComponent,OrderComponent,ResetPasswordComponent,HeaderComponent,FooterComponent,LiveSessionsComponent,ComingSessionsComponent,FeaturedVideoComponent,BeforeFooterComponent,SearchComponent,OnlineCourseComponent,NotificationComponent,TodaysUpcomingSessionComponent,TomorrowUpcomingSessionComponent,MoreUpcomingSessionComponent,TrainerBioComponent,TrainerListComponent,InnerHeaderComponent,DashboardComponent,PaymentSuccessComponent,StartSessionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [HttpClientModule],

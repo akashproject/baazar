@@ -1,8 +1,7 @@
 export const environment = {
   production: false,
   baseURL: 'https://devsov.baazar.live/panel/api/index.php/',
-  mediaURL: 'https://devsov.baazar.live/panel/api/uploads/',
-  uservault: 'https://devsov.baazar.live/panel/api/investments/',
+  mediaURL: 'https://devsov.baazar.live/panel/uploads/',
   apiUrl: 'https://devsov.baazar.live/panel/api/',
   general: {
     symbol: '$',
