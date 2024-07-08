@@ -15,7 +15,7 @@
                 </div>  
                 <div *ngFor="let item of cartItem;" class="d-flex align-items-center border-bottom p-2 cart-item product-card">
                     <div class="w-50 d-flex align-items-center">
-                        <a (click)="removeFromCart($event,item.batch_id)" ><i class="fa-regular fa-circle-xmark"></i></a>
+                        <a (click)="removeFromCart($event,item)" ><i class="fa-regular fa-circle-xmark"></i></a>
                         <img src="{{mediaURL+item.avator}}" alt="Product Image" class="me-2 product-img">
                         <span>{{item.expertise}} Live Session</span>
                     </div>
@@ -50,8 +50,8 @@
                     <p>GST 18%</p>
                     </div>
                 <div class="price_1">
-                    <span> ₹{{ cart.sessionPrice }}/-</span>
-                    <span>₹{{ cart.plaformFee }}/-</span>
+                    <span> ₹{{ sessionPrice }}/-</span>
+                    <span>₹{{ plaformFee }}/-</span>
                     <span>₹ 00 /-</span>
                     <span>₹{{ taxAmount }}/-</span>
                     </div>

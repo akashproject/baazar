@@ -19,7 +19,7 @@
                     <a class="nav-link" routerLink='/trainers'>Trainers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink='/cart'>
+                    <a class="nav-link" routerLink='/cart' [matBadge]="cartCount" matBadgeSize="small" [matBadgeHidden]="batchHidden">
                         <img src="/assets/images/icon/shop.png" alt="Shop now" class="cart-icon">
                     </a>
                 </li>

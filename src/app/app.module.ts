@@ -36,19 +36,22 @@ import { InnerHeaderComponent } from './components/inner-header/inner-header.com
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { StartSessionComponent } from './pages/start-session/start-session.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,HomeComponent,LoginComponent,SignupComponent,SessionsComponent,TrainersComponent,TrainerComponent,CartComponent,CheckoutComponent,ThankYouComponent,OrdersComponent,OrderComponent,ResetPasswordComponent,HeaderComponent,FooterComponent,LiveSessionsComponent,ComingSessionsComponent,FeaturedVideoComponent,BeforeFooterComponent,SearchComponent,OnlineCourseComponent,NotificationComponent,TodaysUpcomingSessionComponent,TomorrowUpcomingSessionComponent,MoreUpcomingSessionComponent,TrainerBioComponent,TrainerListComponent,InnerHeaderComponent,DashboardComponent,PaymentSuccessComponent,StartSessionComponent
   ],
   imports: [
     BrowserModule,
+    MatBadgeModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

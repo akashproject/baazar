@@ -9,9 +9,7 @@ export class FooterComponent implements OnInit{
   allSettings :any =  (localStorage.getItem('allSettings') !== null)?JSON.parse(localStorage.getItem('allSettings') || '{}'):null;
 
   ngOnInit(): void {
-    
-    console.log(this.allSettings);
-
+  
   }
 
 }

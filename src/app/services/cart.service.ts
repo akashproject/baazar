@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  cartItem : any = (localStorage.getItem('item') !== null)?JSON.parse(localStorage.getItem('item') || '{}'):[]
+  cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):[]
+  private cartCount = new BehaviorSubject<number>(0);
   cartBtnLabel = "Add To Cart"
-  sessionPrice : any = localStorage.getItem("sessionPrice")?localStorage.getItem("sessionPrice"):0;
-  plaformFee : any = localStorage.getItem("plaformFee")?localStorage.getItem("plaformFee"):0;
-  totalPrice : any = localStorage.getItem("totalPrice")?localStorage.getItem("totalPrice"):0;
-  taxAmount : any = localStorage.getItem("taxAmount")?localStorage.getItem("taxAmount"):0;
-  payableAmount : any = localStorage.getItem("payableAmount")?localStorage.getItem("payableAmount"):0;
+  
   constructor() { }
 
   addToCart(event: any,product : any){
-    if (localStorage.getItem("item") !== null) {
+    if (localStorage.getItem("cartItem") !== null) {
       let item = JSON.parse(localStorage.getItem('item') || '{}');
       for (var k in item){
         if (item.hasOwnProperty(k)) {
@@ -25,29 +22,50 @@ export class CartService {
     } else {
       this.cartItem.push(product);
     }
-
-    this.sessionPrice = parseInt(this.sessionPrice) + parseInt(product.teacher_fee);
-    this.plaformFee = parseInt(this.plaformFee) + parseInt(product.commission_amount);
-    this.totalPrice = parseInt(this.totalPrice) + parseInt(product.price);
-
     localStorage.setItem("cartItem",JSON.stringify(this.cartItem))
-    localStorage.setItem("totalPrice",this.totalPrice)
-    localStorage.setItem("plaformFee",this.plaformFee)
-    localStorage.setItem("sessionPrice",this.sessionPrice)
-    this.gstCalculate()
     event.target.innerText = "Cart Added";
+    this.cartPriceCalculation();
   }
 
-  gstCalculate() {
-    let taxRate  : number = 18;
-    this.taxAmount = this.totalPrice*taxRate/parseInt("100");
-    localStorage.setItem("taxAmount",this.taxAmount)
-    this.payableAmount = parseInt(this.totalPrice)+this.taxAmount;   
-    localStorage.setItem("payableAmount",this.payableAmount)   
+  getCartCount() {
+    let item = JSON.parse(localStorage.getItem('item') || '{}');
+    this.cartCount = item.length
+    return this.cartCount;
+  }
+
+
+
+  cartPriceCalculation(){
+    const cartItem = JSON.parse(localStorage.getItem('cartItem') || '{}');
+    let sessionPrice :any = 0
+    let plaformFee :any = 0
+    let totalPrice: any = 0;
+    for (var k in cartItem){
+      if (cartItem.hasOwnProperty(k)) {
+        // console.log(cartItem[k]);
+        sessionPrice = parseInt(sessionPrice) + parseInt(cartItem[k].teacher_fee);
+        plaformFee = parseInt(plaformFee) + parseInt(cartItem[k].commission_amount);
+      }
+    }
+    totalPrice = parseInt(sessionPrice) + parseInt(plaformFee);
+    this.gstCalculate(totalPrice)
+    localStorage.setItem("sessionPrice",sessionPrice)
+    localStorage.setItem("plaformFee",plaformFee)
+    localStorage.setItem("totalPrice",totalPrice)    
+    localStorage.setItem("cartItemCount",cartItem.length)
+    this.cartCount.next(cartItem.length)
   }
 
   getItemFromCart(){
 
+  }
+
+  gstCalculate(totalPrice: number) {
+    let taxRate  : number = 18;
+    let taxAmount : any = totalPrice*taxRate/parseInt("100");
+    localStorage.setItem("taxAmount",taxAmount)
+    let payableAmount :any = totalPrice+parseInt(taxAmount);   
+    localStorage.setItem("payableAmount",payableAmount)   
   }
 
 }

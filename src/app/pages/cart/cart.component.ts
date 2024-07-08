@@ -16,6 +16,8 @@ export class CartComponent implements OnInit{
   cartPrice : any = (localStorage.getItem('totalPrice') !== null)?localStorage.getItem('totalPrice'):0;
   payableAmount : any = (localStorage.getItem('payableAmount') !== null)?localStorage.getItem('payableAmount'):0;
   taxAmount : any = (localStorage.getItem('taxAmount') !== null)?localStorage.getItem('taxAmount'):0;
+  sessionPrice : any = (localStorage.getItem('sessionPrice') !== null)?localStorage.getItem('sessionPrice'):0;
+  plaformFee : any = (localStorage.getItem('plaformFee') !== null)?localStorage.getItem('plaformFee'):0;
   constructor(
     private router: Router,
     private api: ApiService,
@@ -26,34 +28,23 @@ export class CartComponent implements OnInit{
       
     }
 
-    ngOnInit(): void {
-      
+    ngOnInit(): void {      
+      this.cart.cartPriceCalculation();
     }
 
-    getItemFromCart() {
-      
-    }
 
-    totalCartPrice() {
-      
-    }
-
-    removeFromCart(event : any, batch_id:any) {
+    removeFromCart(event : any, item:any) {
       console.log(this.cartItem);
 
-      for (const key in this.cartItem) {
-        if (Object.prototype.hasOwnProperty.call(this.cartItem, key)) {
-          if(batch_id == this.cartItem[key].batch_id) {
-            console.log(this.cartItem[key]);
-            this.cartPrice = this.cartPrice - this.cartItem[key].price
-            localStorage.setItem("cartPrice",this.cartPrice)
-            this.cartItem.pop(this.cartItem[key]);
-            this.totalCartPrice()
-          }
-        }
+      const index = this.cartItem.indexOf(item);
+      console.log(index);
+      
+      if (index > -1) {
+        this.cartItem.splice(index, 1);
       }
 
-      localStorage.setItem("item",JSON.stringify(this.cartItem))
+      localStorage.setItem("cartItem",JSON.stringify(this.cartItem))
+      this.cart.cartPriceCalculation();
     }
 
 
