@@ -32,8 +32,7 @@ export class CheckoutComponent  implements OnInit{
   message : any = null;
   confirmPay = false;
   otpSent = false;
-  otpValue : any = 654321;
-  formSubmitBtnLabel = "Get OTP"
+  otpValue : any;
   constructor(
     private router: Router,
     private api: ApiService,
