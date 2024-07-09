@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):[]
-  private cartCount = new BehaviorSubject<number>(0);
+  cartCount = new BehaviorSubject<number>(0);
   cartBtnLabel = "Add To Cart"
   
   constructor() { }
@@ -54,6 +54,8 @@ export class CartService {
     localStorage.setItem("totalPrice",totalPrice)    
     localStorage.setItem("cartItemCount",cartItem.length)
     this.cartCount.next(cartItem.length)
+    console.log(this.cartCount.value);
+    
   }
 
   getItemFromCart(){

@@ -21,88 +21,114 @@
                     </ul>
                     <div class="tab-content mt-3" id="myTabContent">
                         <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="register-tab">
-                            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-                                <div class="row">
-                                    <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
-                                    <label for="firstname" class="font-label font-poppins mb-2">First name</label>
-                                    <input formControlName="firstname" type="text" class="form-control" id="firstName" placeholder="Enter Your First name">
-                                    <div class="error" *ngIf="signupForm.get('firstname').invalid && signupForm.get('firstname').touched">
-                                        First Name is required.
-                                    </div>
-                                    </div>
-                                    <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
-                                    <label for="lastname" class="font-label font-poppins mb-2">Last name</label>
-                                    <input formControlName="lastname"  type="text" class="form-control" id="lastName" placeholder="Enter Your Last name">
-                                    <div  class="error" *ngIf="signupForm.get('lastname').invalid && signupForm.get('lastname').touched">
-                                        Last name is required.
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
-                                        <label for="email" class="font-label font-poppins mb-2">Email Address</label>
-                                        <input formControlName="email" type="email" autocomplete="off" class="form-control" id="email" placeholder="Enter Your Email Address">
-                                        <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
-                                            <div  class="error" *ngIf="signupForm.get('email').errors?.required">Email is required.</div>
+                            <form [formGroup]="signupForm" (ngSubmit)="getOtp()" >
+                                <div *ngIf="!otpSent">
+                                    <div class="row">
+                                        <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
+                                            <label for="firstname" class="font-label font-poppins mb-2">First name</label>
+                                            <input (change)="showError()" formControlName="firstname" type="text" class="form-control" id="firstName" placeholder="Enter Your First name">
+                                            <div class="error" *ngIf="signupForm.get('firstname').invalid && signupForm.get('firstname').touched">
+                                                First Name is required.
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
+                                            <label for="lastname" class="font-label font-poppins mb-2">Last name</label>
+                                            <input formControlName="lastname"  type="text" class="form-control" id="lastName" placeholder="Enter Your Last name">
+                                            <div  class="error" *ngIf="signupForm.get('lastname').invalid && signupForm.get('lastname').touched">
+                                                Last name is required.
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-12 col-lg-12 col-xl-6 mt-3">
-                                        <label for="mobile" class="font-label font-poppins mb-2">Mobile Number</label>
-                                        <input formControlName="mobile" type="number" class="form-control" id="mobile" placeholder="Enter Your Mobile Number">
-                                        <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').touched">
-                                            <div  class="error" *ngIf="signupForm.get('mobile').errors?.required">Mobile is required.</div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-4">
+                                            <label for="email" class="font-label font-poppins mb-2">Email Address</label>
+                                            <input formControlName="email" type="email" autocomplete="off" class="form-control" id="email" placeholder="Enter Your Email Address">
+                                            <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched">
+                                                <div  class="error" *ngIf="signupForm.get('email').errors?.required">Email is required.</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12 col-lg-12 col-xl-4 mt-3">
+                                            <label for="mobile" class="font-label font-poppins mb-2">Mobile Number</label>
+                                            <input formControlName="mobile" type="number" class="form-control" id="mobile" placeholder="Enter Your Mobile Number">
+                                            <div *ngIf="signupForm.get('mobile').invalid && signupForm.get('mobile').touched">
+                                                <div  class="error" *ngIf="signupForm.get('mobile').errors?.required">Mobile is required.</div>
+                                            </div>
+                                        </div>
+                                        <div class="font-label font-poppins form-group col-md-12 col-lg-12 col-xl-4 mt-3">
+                                            <label for="pan" class="font-label font-poppins mb-2">PAN Number</label>
+                                            <input formControlName="pan" type="pan" class="form-control" id="pan" placeholder="Enter PAN Number">
+                                            <div *ngIf="signupForm.get('pan').invalid && signupForm.get('pan').touched">
+                                                <div  class="error" *ngIf="signupForm.get('pan').errors?.required">Pan is required.</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12 my-2">
+                                            <label for="address" class="font-label font-poppins  mb-2">Billing Address</label>
+                                            <textarea formControlName="address" type="password" class="form-control" id="address" placeholder="Enter Your Billing Address"></textarea>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-12 d-flex">
+                                        <input type="checkbox" class="form-check-input" id="terms" [checked]="true">
+                                        <label class="form-check-label ms-2 font-poppins" for="terms">I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a></label>
+                                    </div>
+                                    <div class="row"> 
+                                        <div class="col-md-12 mt-3">    
+                                            <button type="submit" class="btn btn-primary  w-100 btn-block" >Get OTP</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row"> 
-                                    <div class="font-label font-poppins form-group col-md-12 col-lg-12 col-xl-6 mt-3">
-                                        <label for="password" class="font-label font-poppins mb-2">Password</label>
-                                        <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
-                                        <div *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched">
-                                            <div  class="error" *ngIf="signupForm.get('password').errors?.required">Password is required.</div>
+                                <div *ngIf="otpSent">
+                                    <div class="row">
+                                        <div class="form-group col-md-12 text-center">
+                                            <label for="otp" class="font-label font-poppins mb-2">One time password</label>
+                                            <input formControlName="otp"  type="number" class="form-control" id="otp" placeholder="Enter Your One time password">
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-6">
-                                        <label for="confirmPassword" class="font-label font-poppins  mb-2">Confirm password</label>
-                                        <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
-                                        <div *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched">
-                                            <div  class="error" *ngIf="signupForm.get('confirmPassword').errors?.required">confirmPassword is required.</div>
+                                    <div class="row"> 
+                                        <div class="col-md-12 mt-3">    
+                                            <button type="button" class="btn btn-primary  w-100 btn-block" (click)="this.onSubmit()">Submit OTP</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-12 col-lg-12 mt-3 col-xl-12 d-flex">
-                                    <input type="checkbox" class="form-check-input" id="terms" [checked]="true">
-                                    <label class="form-check-label ms-2 font-poppins" for="terms">I agree to all the <a href="#">Terms</a> and <a href="#">Privacy policy</a></label>
-                                </div>
-                                <div class="row"> 
-                                    <div class="col-md-6 col-lg-12 col-xl-6 mt-3">
-                                        <button type="submit" class="btn btn-primary  w-100 btn-block ">Create account</button>
-                                    </div>
-                                </div>
+                                
                             </form>
                         </div>
                         <div class="tab-pane fade" id="login" role="tabpanel" aria-labelledby="login-tab">
-                            <form [formGroup]="loginForm" (ngSubmit)="login()">
-                                <div class="form-group mt-3">
-                                    <label for="mobile" class="font-label font-poppins">Mobile Number</label>
-                                    <input formControlName="mobile" type="email" class="form-control box-shadow mt-2" id="mobile" placeholder="Enter Mobile Number">
-                                    <div *ngIf="loginForm.get('mobile')?.invalid && (loginForm.get('mobile')?.touched || loginForm.get('mobile')?.dirty)">
-                                    <small *ngIf="loginForm.get('mobile')?.errors?.['required']">Email is required.</small>
+                            <form [formGroup]="loginForm" (ngSubmit)="getMobileOtp()">
+                                <div *ngIf="!otpSent">
+                                    <div class="form-group mt-3">
+                                        <label for="mobile" class="font-label font-poppins">Mobile Number</label>
+                                        <input formControlName="mobile" type="email" class="form-control box-shadow mt-2" id="mobile" placeholder="Enter Mobile Number">
+                                        <div *ngIf="loginForm.get('mobile')?.invalid && (loginForm.get('mobile')?.touched || loginForm.get('mobile')?.dirty)">
+                                        <small *ngIf="loginForm.get('mobile')?.errors?.['required']">Email is required.</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label for="password" class="font-label font-poppins">Password</label>
+                                        <input formControlName="password" type="password" class="form-control box-shadow mt-2" id="password" placeholder="Password">
+                                        <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+                                        <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
+                                        <small *ngIf="loginForm.get('password')?.errors?.['minLength']">Password must be at least 8 characters long.</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-lg-12 mt-5 col-xl-12">
+                                        <button type="submit" class="btn btn-primary start-now btn-block" [disabled]="loginForm.invalid">
+                                            Login
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="form-group mt-3">
-                                    <label for="password" class="font-label font-poppins">Password</label>
-                                    <input formControlName="password" type="password" class="form-control box-shadow mt-2" id="password" placeholder="Password">
-                                    <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
-                                    <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</small>
-                                    <small *ngIf="loginForm.get('password')?.errors?.['minLength']">Password must be at least 8 characters long.</small>
+                                <div *ngIf="otpSent">
+                                    <div class="row">
+                                        <div class="form-group col-md-12 text-center">
+                                            <label for="otp" class="font-label font-poppins mb-2">One time password</label>
+                                            <input formControlName="otp"  type="number" class="form-control" id="otp" placeholder="Enter Your One time password">
+                                        </div>
                                     </div>
-                                </div>
-                                <a routerLink="/forgot-password" class="forgot-password text-end mt-3 ">Forgot Password</a>
-                                <div class="form-group col-md-12 col-lg-12 mt-5 col-xl-12">
-                                    <button type="submit" class="btn btn-primary start-now btn-block" [disabled]="loginForm.invalid">
-                                        Login
-                                    </button>
+                                    <div class="row"> 
+                                        <div class="col-md-12 mt-3">    
+                                            <button type="button" class="btn btn-primary  w-100 btn-block" (click)="this.login()">Submit OTP</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>

@@ -3,7 +3,7 @@
 <app-online-course></app-online-course>
 <app-notification></app-notification>
 <div class="container mt-5">
-    <div class="row" *ngIf="cartItem !== null">
+    <div class="row" *ngIf="cartItem.length > 0">
         <div class="col-lg-8 cart ">
             <h4>Shopping Cart</h4>
             <div class="d-flex flex-column">
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="cartItem === null">
+    <div class="row" *ngIf="cartItem.length <= 0">
         <div class="col-12 my-3">
             <div class="text-center">
                 <a class="btn btn-outline-primary btn-return" routerLink='/sessions'> CART IS EMPTY</a>

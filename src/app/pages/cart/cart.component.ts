@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit{
-  cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):null;
+  cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):[];
   mediaURL: any = '';
   cartPrice : any = (localStorage.getItem('totalPrice') !== null)?localStorage.getItem('totalPrice'):0;
   payableAmount : any = (localStorage.getItem('payableAmount') !== null)?localStorage.getItem('payableAmount'):0;
@@ -30,6 +30,8 @@ export class CartComponent implements OnInit{
 
     ngOnInit(): void {      
       this.cart.cartPriceCalculation();
+      console.log(this.cartItem.length);
+      
     }
 
 

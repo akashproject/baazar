@@ -1,10 +1,8 @@
-import {Inject, Injectable } from '@angular/core';
-import { UtilService } from './utils.service';
+import {Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { ApiService } from './api.service';
-import { switchMap, tap, map} from 'rxjs/operators/index';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +24,7 @@ export class OrderService {
     return this.http.post(`${environment.apiUrl}create-order`, params, header);
   }
 
-  createComplete(confirmOrder:any){
+  orderComplete(confirmOrder:any){
     let token = JSON.parse(localStorage.getItem('access_token') || '{}')
     
     const header = {

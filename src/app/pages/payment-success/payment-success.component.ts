@@ -42,7 +42,7 @@ export class PaymentSuccessComponent implements OnInit {
         'status':"paid"
       }
 
-      this.order.createComplete(payment)
+      this.order.orderComplete(payment)
         .subscribe((response: any) => {
          console.log(response);
          

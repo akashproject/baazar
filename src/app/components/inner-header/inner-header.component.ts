@@ -26,8 +26,7 @@ export class InnerHeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-      this.cartCount = this.cart.getCartCount()
-      
+      this.cartCount = (localStorage.getItem('cartItemCount') !== null)?localStorage.getItem('cartItemCount'):0;
     }
 
   logout() {
