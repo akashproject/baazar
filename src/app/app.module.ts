@@ -37,7 +37,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { StartSessionComponent } from './pages/start-session/start-session.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,HomeComponent,LoginComponent,SignupComponent,SessionsComponent,TrainersComponent,TrainerComponent,CartComponent,CheckoutComponent,ThankYouComponent,OrdersComponent,OrderComponent,ResetPasswordComponent,HeaderComponent,FooterComponent,LiveSessionsComponent,ComingSessionsComponent,FeaturedVideoComponent,BeforeFooterComponent,SearchComponent,OnlineCourseComponent,NotificationComponent,TodaysUpcomingSessionComponent,TomorrowUpcomingSessionComponent,MoreUpcomingSessionComponent,TrainerBioComponent,TrainerListComponent,InnerHeaderComponent,DashboardComponent,PaymentSuccessComponent,StartSessionComponent
@@ -45,6 +48,9 @@ import {MatBadgeModule} from '@angular/material/badge';
   imports: [
     BrowserModule,
     MatBadgeModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,

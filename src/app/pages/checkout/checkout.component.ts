@@ -8,7 +8,6 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators,AbstractControl  } from '@angular/forms';
-
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -22,7 +21,7 @@ export class CheckoutComponent  implements OnInit{
     'taxAmount' : (localStorage.getItem('taxAmount') !== null)?localStorage.getItem('taxAmount'):0,
     'totalPrice' : (localStorage.getItem('totalPrice') !== null)?localStorage.getItem('totalPrice'):0,
     'sessionPrice' : (localStorage.getItem('sessionPrice') !== null)?localStorage.getItem('sessionPrice'):0,
-    'payableAmount' : (localStorage.getItem('payableAmount') !== null)?localStorage.getItem('payableAmount'):0
+    'payableAmount' : (localStorage.getItem('payableAmount') !== null)?localStorage.getItem('payableAmount'):0,
   }
   user : any = (localStorage.getItem('user') === null)?localStorage.getItem('user'):JSON.parse(localStorage.getItem('user') || '{}');
   accessToken: any = (localStorage.getItem('access_token') === null)?localStorage.getItem('access_token'):JSON.parse(localStorage.getItem('access_token') || '{}');
@@ -33,6 +32,7 @@ export class CheckoutComponent  implements OnInit{
   confirmPay = false;
   otpSent = false;
   otpValue : any;
+  states :any = [];
   constructor(
     private router: Router,
     private api: ApiService,
@@ -48,18 +48,23 @@ export class CheckoutComponent  implements OnInit{
         otp:[''],
       });
 
-      this.signupForm = this.fb.group({
-        firstname:['', [Validators.required]],
-        lastname:['', [Validators.required]],
-        email:['', [Validators.required]],
-        mobile: ['', [Validators.required]], 
-        pan:['', [Validators.required]],
-        address:[''],
-        otp:[''],
-      });
+      this.signupForm = this.fb.group(
+        {
+          firstname:['', [Validators.required]],
+          lastname:['', [Validators.required]],
+          email:['', [Validators.required]],
+          mobile: ['', [Validators.required]], 
+          pan:['', [Validators.required]],
+          address:[''],
+          state:[''],
+          pincode:[''],
+          otp:[''],
+        }
+      );
     }
 
     ngOnInit(): void {
+      this.getStates();   
     }
 
 
@@ -105,8 +110,20 @@ export class CheckoutComponent  implements OnInit{
 
     signupUser(){
       console.log("valid",this.signupForm);
-      this.signupForm.value.name = this.signupForm.value.firstname+' '+this.signupForm.value.lastnam
-      this.signin.signupUser(this.signupForm.value)
+      let signUpUser = {
+        'user': {
+          'name':this.signupForm.value.firstname+' '+this.signupForm.value.lastname,
+          'email':this.signupForm.value.email,
+          'mobile':this.signupForm.value.mobile
+        },
+        'userMeta':{
+          'address':this.signupForm.value.address,
+          'pan':this.signupForm.value.pan,
+          'state':this.signupForm.value.state,
+          'pincode':this.signupForm.value.pincode
+        }
+      }
+      this.signin.signupUser(signUpUser)
         .subscribe((data: any) => {
           this.signin.setToken(data);
           this.accessToken = data;
@@ -114,6 +131,8 @@ export class CheckoutComponent  implements OnInit{
             localStorage.setItem("user", JSON.stringify(res));
             window.location.reload();
           });
+        },(error) => {
+          this.toastr.error('Failed to register','Error');
         });
     }
 
@@ -147,5 +166,10 @@ export class CheckoutComponent  implements OnInit{
       }
     }
     
+    getStates(){
+      this.api.get("all-states").subscribe((res) => {
+        this.states = res;
+      })
+    }
     
 }

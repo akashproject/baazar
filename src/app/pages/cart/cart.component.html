@@ -36,6 +36,9 @@
                 <div class="col-md-6 mb-2 mb-md-0">
                     <a class="btn btn-outline-primary btn-return" routerLink='/'><i class="fa-solid fa-arrow-left"></i> RETURN TO HOME</a>
                 </div>
+                <div class="col-md-6 right_al" *ngIf="updateCartBtn">
+                    <button class="btn btn-outline-primary btn-update" (click)="updateCart()">UPDATE CART</button>
+                </div>
             </div>
         </div>
         <div class="col-lg-4">
@@ -68,7 +71,7 @@
                     <h5 class="card-title">Coupon Code</h5>
                     <div class="input-groups">
                         <input type="text" class="form-control fs-18" placeholder="Apply Coupon Code">
-                        <button class="btn btn-primary apply-now">APPLY COUPON</button>
+                        <button class="btn btn-primary apply-now" (click)="applyCoupon()">APPLY COUPON</button>
                     </div>
                 </div>
             </div>
@@ -77,7 +80,7 @@
     <div class="row" *ngIf="cartItem.length <= 0">
         <div class="col-12 my-3">
             <div class="text-center">
-                <a class="btn btn-outline-primary btn-return" routerLink='/sessions'> CART IS EMPTY</a>
+                <button class="btn btn-outline-primary btn-return" routerLink='/sessions'> CART IS EMPTY</button>
             </div>
         </div>
     </div>

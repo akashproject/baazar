@@ -18,6 +18,8 @@ export class CartComponent implements OnInit{
   taxAmount : any = (localStorage.getItem('taxAmount') !== null)?localStorage.getItem('taxAmount'):0;
   sessionPrice : any = (localStorage.getItem('sessionPrice') !== null)?localStorage.getItem('sessionPrice'):0;
   plaformFee : any = (localStorage.getItem('plaformFee') !== null)?localStorage.getItem('plaformFee'):0;
+  updateCartBtn = false
+  coupon:any = 'BAAZARUP100'
   constructor(
     private router: Router,
     private api: ApiService,
@@ -36,7 +38,7 @@ export class CartComponent implements OnInit{
 
 
     removeFromCart(event : any, item:any) {
-      console.log(this.cartItem);
+      this.updateCartBtn = true
 
       const index = this.cartItem.indexOf(item);
       console.log(index);
@@ -47,6 +49,17 @@ export class CartComponent implements OnInit{
 
       localStorage.setItem("cartItem",JSON.stringify(this.cartItem))
       this.cart.cartPriceCalculation();
+    }
+
+    updateCart(){
+      window.location.reload()
+    }
+
+    applyCoupon(){
+      this.api.post('apply-coupon',{'code':this.coupon}).subscribe((data) => {
+        console.log(data);
+        
+      })
     }
 
 
