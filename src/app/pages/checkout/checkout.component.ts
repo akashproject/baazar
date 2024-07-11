@@ -22,6 +22,7 @@ export class CheckoutComponent  implements OnInit{
     'totalPrice' : (localStorage.getItem('totalPrice') !== null)?localStorage.getItem('totalPrice'):0,
     'sessionPrice' : (localStorage.getItem('sessionPrice') !== null)?localStorage.getItem('sessionPrice'):0,
     'payableAmount' : (localStorage.getItem('payableAmount') !== null)?localStorage.getItem('payableAmount'):0,
+    'coupon' : (localStorage.getItem('coupon') !== null)?JSON.parse(localStorage.getItem('coupon') || '{}'):null,
   }
   user : any = (localStorage.getItem('user') === null)?localStorage.getItem('user'):JSON.parse(localStorage.getItem('user') || '{}');
   accessToken: any = (localStorage.getItem('access_token') === null)?localStorage.getItem('access_token'):JSON.parse(localStorage.getItem('access_token') || '{}');
@@ -64,7 +65,8 @@ export class CheckoutComponent  implements OnInit{
     }
 
     ngOnInit(): void {
-      this.getStates();   
+      console.log(this.orderCreate.coupon);
+      
     }
 
 

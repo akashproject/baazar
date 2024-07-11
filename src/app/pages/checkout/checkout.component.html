@@ -62,7 +62,7 @@
                                             </div>
                                         </mat-form-field>
                                         <mat-form-field class="form-group col-12 my-2">
-                                            <mat-label>Leave a comment</mat-label>
+                                            <mat-label>Billing Address</mat-label>
                                             <textarea matInput formControlName="address" id="address" placeholder="Enter Your Billing Address" ></textarea>
                                         </mat-form-field>
                                     </div>
@@ -173,6 +173,10 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Total Platform Fee
                             <span>₹{{orderCreate.plaformFee}}/-</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="orderCreate.coupon !== null">
+                            Applied Coupon 
+                            <span>{{orderCreate.coupon.code}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Gst 18%

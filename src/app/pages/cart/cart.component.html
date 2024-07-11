@@ -3,7 +3,7 @@
 <app-online-course></app-online-course>
 <app-notification></app-notification>
 <div class="container mt-5">
-    <div class="row" *ngIf="cartItem.length > 0">
+    <div class="row" *ngIf="cartItem !== null">
         <div class="col-lg-8 cart ">
             <h4>Shopping Cart</h4>
             <div class="d-flex flex-column">
@@ -19,7 +19,6 @@
                         <img src="{{mediaURL+item.avator}}" alt="Product Image" class="me-2 product-img">
                         <span>{{item.expertise}} Live Session</span>
                     </div>
-                    
                     <div class="w-25 price">
                         <del>Rs.{{ item.teacher_fee+100 }}</del> Rs.{{ item.teacher_fee }}
                     </div>
@@ -29,7 +28,6 @@
                         </div>
                     </div>
                     <div class="w-25 sub-total">Rs.{{ item.commission_amount }}</div>
-                    
                 </div>
             </div>
             <div class="row mb-3 mt-3">
@@ -45,25 +43,37 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Card Totals</h5>
-                <div class="flxx_wrap">
-                    <div class="price_nm">
-                    <p>Session Price</p>
-                    <p>Platform Fee</p>
-                    <p>Discount</p>
-                    <p>GST 18%</p>
+                    <div class="">
+                        <div class="row my-3" >
+                            <div class="col-6 text-left" >Session Price</div>
+                            <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.sessionPrice }}/-</div>
+                        </div>
+                        <div class="row my-3" >
+                            <div class="col-6 text-left" >Platform Fee</div>
+                            <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.plaformFee }}/-</div>
+                        </div>
+                        
+                        <div class="row my-3" >
+                            <div class="col-6 text-left" >GST 18%</div>
+                            <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.taxAmount }}/-</div>
+                        </div>
+                        <div class="row my-3" >
+                            <div class="col-6 text-left" >Discount</div>
+                            <div class="col-6 text-right" style="text-align: right;">
+                                <span *ngIf="cart.cart.coupon !== null"> ₹ {{cart.cart.coupon.discount}} /-</span>
+                                <span *ngIf="cart.cart.coupon === null"> ₹ 00 /-</span>
+                            </div>
+                        </div>
                     </div>
-                <div class="price_1">
-                    <span> ₹{{ sessionPrice }}/-</span>
-                    <span>₹{{ plaformFee }}/-</span>
-                    <span>₹ 00 /-</span>
-                    <span>₹{{ taxAmount }}/-</span>
+                    <div class="total_wrap">
+                        <h5>Total</h5>
+                        <span>₹{{ cart.cart.paybleAmount }}/- </span>
                     </div>
-                </div>
-                <div class="total_wrap">
-                    <h5>Total</h5>
-                    <span>₹{{ payableAmount }}/- </span>
-                </div>
-                    <button class="btn btn-success btn-checkout" routerLink='/checkout'>PROCEED TO CHECKOUT<i class="fa-solid fa-arrow-right"></i></button>
+                    <div class="row">
+                        <button class="btn btn-success btn-checkout width-100" routerLink='/checkout'>
+                            PROCEED TO CHECKOUT<i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="card">
@@ -77,7 +87,7 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="cartItem.length <= 0">
+    <div class="row" *ngIf="cartItem === null">
         <div class="col-12 my-3">
             <div class="text-center">
                 <button class="btn btn-outline-primary btn-return" routerLink='/sessions'> CART IS EMPTY</button>

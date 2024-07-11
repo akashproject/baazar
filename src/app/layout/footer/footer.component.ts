@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent implements OnInit{
-  allSettings :any =  (localStorage.getItem('allSettings') !== null)?JSON.parse(localStorage.getItem('allSettings') || '{}'):null;
+  allSettings :any = {
+
+  };
 
   ngOnInit(): void {
-  
+    this.allSettings =  (localStorage.getItem('allSettings') !== null)?JSON.parse(localStorage.getItem('allSettings') || '{}'):null
   }
 
 }

@@ -13,7 +13,6 @@ import { CartService } from '../../services/cart.service';
 export class InnerHeaderComponent implements OnInit {
   public user : any = (localStorage.getItem('user') === null)?localStorage.getItem('user'):JSON.parse(localStorage.getItem('user') || '{}');
   public token : any = (localStorage.getItem('access_token') === null)?localStorage.getItem('access_token'):JSON.parse(localStorage.getItem('access_token') || '{}');
-  cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):true;
   cartCount: any;
   constructor(
     private router: Router,
@@ -22,11 +21,11 @@ export class InnerHeaderComponent implements OnInit {
     private cart: CartService,
     private toastr: ToastrService) {
         
-        
+ 
     }
 
     ngOnInit(): void {
-      this.cartCount = (localStorage.getItem('cartItemCount') !== null)?localStorage.getItem('cartItemCount'):0;
+      this.cartCount = this.cart.cart.cartItemCount;
     }
 
   logout() {
