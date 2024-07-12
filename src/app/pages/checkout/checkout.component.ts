@@ -65,19 +65,17 @@ export class CheckoutComponent  implements OnInit{
     }
 
     ngOnInit(): void {
-      console.log(this.orderCreate.coupon);
-      
+      //this.cart.cartPriceCalculation();
     }
 
 
     createOrder(){
-      this.order.createOrder(this.orderCreate)
+
+      
+      this.order.createOrder(this.cart.cart)
         .subscribe((response: any) => {
           localStorage.setItem('order',JSON.stringify(response))
           localStorage.removeItem("cartItem");
-          localStorage.removeItem("plaformFee");
-          localStorage.removeItem("taxAmount");
-          localStorage.removeItem("sessionPrice");
           this.router.navigate(['/payment-success']);
         });
     }
@@ -130,8 +128,9 @@ export class CheckoutComponent  implements OnInit{
           this.signin.setToken(data);
           this.accessToken = data;
           this.signin.getUserData(this.accessToken.access_token).subscribe((res: any) => {
+            this.user = res
             localStorage.setItem("user", JSON.stringify(res));
-            window.location.reload();
+            this.confirmPay = true
           });
         },(error) => {
           this.toastr.error('Failed to register','Error');

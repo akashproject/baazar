@@ -9,13 +9,12 @@ export class CartService {
   cartBtnLabel = "Add To Cart"
   cart : any = {
     'cartItem' : [],
-    'payableAmount' : 0,
     'sessionPrice':0,
     'plaformFee':0,
     'totalPrice':0,
     'taxAmount':0,
     'cartItemCount':null,
-    'paybleAmount':0,
+    'payableAmount':0,
     'coupon' : null
   }
 
@@ -61,13 +60,13 @@ export class CartService {
       }
       totalPrice = parseInt(sessionPrice) + parseInt(plaformFee)
       let taxAmount = this.gstCalculate(totalPrice);
-      let paybleAmount:any = totalPrice+parseInt(taxAmount)
+      let payableAmount:any = totalPrice+parseInt(taxAmount)
   
       this.cartCount.next(cartItem.length)
       
       if(this.cart.coupon !== null){
-        paybleAmount = paybleAmount - this.cart.coupon.discount
-        this.cart.payableAmount = paybleAmount
+        payableAmount = payableAmount - this.cart.coupon.discount
+        this.cart.payableAmount = payableAmount
       }
       this.cart.cartItem = cartItem
       this.cart.sessionPrice = sessionPrice
@@ -75,7 +74,7 @@ export class CartService {
       this.cart.totalPrice = totalPrice
       this.cart.cartItemCount = cartItem.length
       this.cart.taxAmount = taxAmount
-      this.cart.paybleAmount = paybleAmount
+      this.cart.payableAmount = payableAmount
   
       console.log(this.cart);  
     }    

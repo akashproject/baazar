@@ -14,7 +14,7 @@ export class CartComponent implements OnInit{
   cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):null;
   mediaURL: any = '';
   updateCartBtn = false
-  couponCode:any = 'BAAZARUP100';
+  couponCode:any = '';
   coupon :any = null
   constructor(
     private router: Router,

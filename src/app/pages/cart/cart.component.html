@@ -52,7 +52,6 @@
                             <div class="col-6 text-left" >Platform Fee</div>
                             <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.plaformFee }}/-</div>
                         </div>
-                        
                         <div class="row my-3" >
                             <div class="col-6 text-left" >GST 18%</div>
                             <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.taxAmount }}/-</div>
@@ -67,7 +66,7 @@
                     </div>
                     <div class="total_wrap">
                         <h5>Total</h5>
-                        <span>₹{{ cart.cart.paybleAmount }}/- </span>
+                        <span>₹{{ cart.cart.payableAmount }}/- </span>
                     </div>
                     <div class="row">
                         <button class="btn btn-success btn-checkout width-100" routerLink='/checkout'>
@@ -76,12 +75,12 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Coupon Code</h5>
                     <div class="input-groups">
-                        <input type="text" class="form-control fs-18" placeholder="Apply Coupon Code">
-                        <button class="btn btn-primary apply-now" (click)="applyCoupon()">APPLY COUPON</button>
+                        <input type="text" class="form-control fs-18" placeholder="Apply Coupon Code" [(ngModel)]="couponCode">
+                        <button class="btn btn-primary apply-now" (click)="applyCoupon()" *ngIf="couponCode != ''">APPLY COUPON</button>
                     </div>
                 </div>
             </div>

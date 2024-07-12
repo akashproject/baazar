@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   baseURL: 'https://devsov.baazar.live/panel/api/index.php/',
-  mediaURL: 'https://devsov.baazar.live/panel/uploads/',
+  mediaURL: 'https://devsov.baazar.live/panel/public/',
   apiUrl: 'https://devsov.baazar.live/panel/api/',
   general: {
     symbol: '$',
@@ -9,4 +9,4 @@ export const environment = {
   },
   authToken: 'scriptcrown',
   gatewayAuthKey:'rzp_live_QxhL6zkgWlxvmh'
-};
+}

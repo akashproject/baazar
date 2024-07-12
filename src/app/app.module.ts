@@ -41,11 +41,14 @@ import { MatBadgeModule } from '@angular/material/badge';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,HomeComponent,LoginComponent,SignupComponent,SessionsComponent,TrainersComponent,TrainerComponent,CartComponent,CheckoutComponent,ThankYouComponent,OrdersComponent,OrderComponent,ResetPasswordComponent,HeaderComponent,FooterComponent,LiveSessionsComponent,ComingSessionsComponent,FeaturedVideoComponent,BeforeFooterComponent,SearchComponent,OnlineCourseComponent,NotificationComponent,TodaysUpcomingSessionComponent,TomorrowUpcomingSessionComponent,MoreUpcomingSessionComponent,TrainerBioComponent,TrainerListComponent,InnerHeaderComponent,DashboardComponent,PaymentSuccessComponent,StartSessionComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     MatBadgeModule,
     MatSelectModule,

@@ -168,23 +168,23 @@
                         
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Total Session Price
-                            <span>₹{{orderCreate.sessionPrice}}/-</span>
+                            <span>₹{{ cart.cart.sessionPrice }}/-</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Total Platform Fee
-                            <span>₹{{orderCreate.plaformFee}}/-</span>
+                            <span>₹{{ cart.cart.plaformFee }}/-</span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="orderCreate.coupon !== null">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="cart.cart.coupon !== null">
                             Applied Coupon 
-                            <span>{{orderCreate.coupon.code}}</span>
+                            <span>{{cart.cart.coupon.code}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Gst 18%
-                            <span>₹{{orderCreate.taxAmount}}/-</span>
+                            <span>₹{{cart.cart.taxAmount}}/-</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <strong>TOTAL</strong>
-                            <strong>₹{{orderCreate.payableAmount}}/-</strong>
+                            <strong>₹{{cart.cart.payableAmount}}/-</strong>
                         </li>
                     </ul>
                    
