@@ -7,7 +7,7 @@ export class CartService {
   
   cartCount = new BehaviorSubject<number>(0);
   cartBtnLabel = "Add To Cart"
-  cart : any = {
+  public cart : any = {
     'cartItem' : [],
     'sessionPrice':0,
     'plaformFee':0,

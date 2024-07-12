@@ -18,7 +18,7 @@ export class InnerHeaderComponent implements OnInit {
     private router: Router,
     private api: ApiService,
     public util: UtilService,
-    private cart: CartService,
+    public cart: CartService,
     private toastr: ToastrService) {
         
  
@@ -29,7 +29,8 @@ export class InnerHeaderComponent implements OnInit {
     }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('user');
+    localStorage.removeItem('access_token');
     this.util.userInfo = null;
     this.router.navigate(['/']).then(() => {
       window.location.reload();

@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private api: ApiService,
     public util: UtilService,
-    private cart: CartService,
+    public cart: CartService,
     private toastr: ToastrService) {
         
         
