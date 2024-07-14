@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -42,10 +42,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,HomeComponent,LoginComponent,SignupComponent,SessionsComponent,TrainersComponent,TrainerComponent,CartComponent,CheckoutComponent,ThankYouComponent,OrdersComponent,OrderComponent,ResetPasswordComponent,HeaderComponent,FooterComponent,LiveSessionsComponent,ComingSessionsComponent,FeaturedVideoComponent,BeforeFooterComponent,SearchComponent,OnlineCourseComponent,NotificationComponent,TodaysUpcomingSessionComponent,TomorrowUpcomingSessionComponent,MoreUpcomingSessionComponent,TrainerBioComponent,TrainerListComponent,InnerHeaderComponent,DashboardComponent,PaymentSuccessComponent,StartSessionComponent
+    AppComponent,HomeComponent,LoginComponent,SignupComponent,SessionsComponent,TrainersComponent,TrainerComponent,CartComponent,CheckoutComponent,ThankYouComponent,OrdersComponent,OrderComponent,ResetPasswordComponent,HeaderComponent,FooterComponent,LiveSessionsComponent,ComingSessionsComponent,FeaturedVideoComponent,BeforeFooterComponent,SearchComponent,OnlineCourseComponent,NotificationComponent,TodaysUpcomingSessionComponent,TomorrowUpcomingSessionComponent,MoreUpcomingSessionComponent,TrainerBioComponent,TrainerListComponent,InnerHeaderComponent,DashboardComponent,PaymentSuccessComponent,StartSessionComponent, SafePipe
   ],
   imports: [
     FormsModule,

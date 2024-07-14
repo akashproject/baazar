@@ -33,23 +33,38 @@ export class DashboardComponent implements OnInit {
   getLiveSessions(){
     this.api.getWithAuth("live-purchased-sessions").subscribe((data: any) => {
       this.liveSessions = data;
+    },(error)=>{
+      console.log(error.error);
+      if (error.error) {
+        this.toastr.error('Login to Continue','Session Timeout');
+      }
     });
   }
 
   getPreviousSessions(){
     this.api.getWithAuth("past-purchased-sessions").subscribe((data: any) => {
       this.previousSessions = data;
+    },(error)=>{
+      if (error.error) {
+        this.toastr.error('Login to Continue','Session Timeout');
+        this.util.logout()
+      }
     });
   }
 
   getUpcomingSessions(){
     this.api.getWithAuth("upcoming-purchased-sessions").subscribe((data: any) => {
       this.nextSessions = data;
+    },(error)=>{
+      console.log(error.error);
+      if (error.error) {
+        this.toastr.error('Login to Continue','Session Timeout');
+      }
     });
   }
 
   joinStreamNow(id:any) {
     id = window.btoa(id);
-    this.router.navigate([]).then(result => {  window.open('/start-session/'+id, '_blank'); });;
+    this.router.navigate(['/start-session',id]);
   }
 }

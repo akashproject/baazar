@@ -194,4 +194,12 @@ export class UtilService {
     }
     return str;
   }
+
+  logout() {
+    localStorage.clear();
+    this.userInfo = null;
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
+  }
 }
