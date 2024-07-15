@@ -50,7 +50,7 @@
         </div>
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
             <!-- Upcoming Session content -->
-            <div class="row" *ngIf="this.nextSessions.length > 0">
+            <div class="row" *ngIf="nextSessions.length > 0">
                 <div *ngFor="let session of nextSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                     <div class="card profile-card">
                         <div class="profile-img-placeholder position-relative">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" *ngIf="this.nextSessions.length <= 0">
+            <div class="row" *ngIf="nextSessions.length <= 0">
                 <div class="col-12 text-center">
                     <div class="my-5" >
                         <h3> No Record Found </h3>
@@ -86,7 +86,7 @@
         </div>
         <div class="tab-pane fade" id="previous" role="tabpanel" aria-labelledby="previous-tab">
             <!-- Previous Session content -->
-            <div class="row" *ngIf="this.previousSessions.length > 0">
+            <div class="row" *ngIf="previousSessions.length > 0">
                 <div *ngFor="let session of previousSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                     <div class="card profile-card">
                         <div class="profile-img-placeholder position-relative">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" *ngIf="this.previousSessions.length <= 0">
+            <div class="row" *ngIf="previousSessions.length <= 0">
                 <div class="col-12 text-center">
                     <div class="my-5" >
                         <h3> No Record Found </h3>

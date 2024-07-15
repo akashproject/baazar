@@ -23,24 +23,25 @@ export class CartService {
 
   addToCart(event: any,product : any){
    
-    let item = JSON.parse(localStorage.getItem('cartItem') || '{}');
+    let item = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):[];
     if (Object.keys(item).length > 0) {
-      for (var k in item){
-        if (item.hasOwnProperty(k)) {
-          console.log(item[k].batch_id,product.batch_id);
-          if(item[k].batch_id == product.batch_id){
-            this.toastr.error('This item alreay exist in cart','Already Exist');
-          } else{
-            item.push(product);
-          }
+
+      const result = item.filter((f : any) =>
+        f.batch_id === product.batch_id &&
+          f.course === product.course
+        );
+
+        if(result.length > 0){
+          this.toastr.error('This item alreay exist in cart','Already Exist');
+        } else {
+          item.push(product);
+          event.target.innerText = "Cart Added";
         }
-      }
-      //item.push(product);
     } else {
       item.push(product);
+      event.target.innerText = "Cart Added";
     }
     localStorage.setItem("cartItem",JSON.stringify(item))
-    event.target.innerText = "Cart Added";
     this.cartPriceCalculation();
   }
 
@@ -86,7 +87,7 @@ export class CartService {
       this.cart.taxAmount = taxAmount
       this.cart.payableAmount = payableAmount
   
-      console.log(this.cart);  
+      //console.log(this.cart);  
     }    
   }
 
