@@ -3,7 +3,7 @@
 <app-online-course></app-online-course>
 <app-notification></app-notification>
 <div class="container mt-5">
-    <div class="row" *ngIf="cartItem !== null">
+    <div class="row" *ngIf="cartItem.length > 0">
         <div class="col-lg-8 cart ">
             <h4>Shopping Cart</h4>
             <div class="d-flex flex-column">
@@ -20,7 +20,7 @@
                         <span>{{item.expertise}} Live Session</span>
                     </div>
                     <div class="w-25 price">
-                        <del>Rs.{{ item.teacher_fee+100 }}</del> Rs.{{ item.teacher_fee }}
+                        <del>Rs.{{ item.teacher_fee+1000 }}</del> Rs.{{ item.teacher_fee }}
                     </div>
                     <div class="w-25 quantity">
                         <div class="input-group">
@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="cartItem === null">
+    <div class="row" *ngIf="cartItem.length <= 0">
         <div class="col-12 my-3">
             <div class="text-center">
                 <button class="btn btn-outline-primary btn-return" routerLink='/sessions'> CART IS EMPTY</button>

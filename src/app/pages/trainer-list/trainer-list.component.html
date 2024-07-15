@@ -23,15 +23,16 @@
                         <div class="card-text">
                             <div *ngIf="tutor.sessions.length > 0" >
                                 <div class="row mb-3" *ngFor="let session of tutor.sessions;">
+
                                     <div class=" col-lg-6 col-sm-12 col-md-12">
+                                        <p class="day-time m-0 p-0"><strong>{{session.course}}</strong></p>
                                         <p class="day-time m-0 p-0">{{session.day}}</p>
                                         <p class="day-time">{{session.start_time}} to {{session.end_time}}</p>
-                                        <p class="price"><a href="#">BUY at Rs. {{session.teacher_fee}}</a></p>
+                                        <p class="price">BUY at <del style="color:red">Rs. {{session.price + 1000}}/- </del> Rs. {{session.price}}/- + GST</p>
                                     </div>
                                     <div class="col-lg-6 col-sm-12 d-flex justify-content-end">
                                         <div class=" col-lg-6  col-sm-12 d-flex justify-content-end">
-                                            <a href="javascript:void(0)" class="btn btn-success btn-buy" (click)="cart.addToCart($event,session)">{{cart.cartBtnLabel}}</a>
-                                            
+                                            <a href="javascript:void(0)" class="btn btn-success btn-buy" (click)="cart.addToCart($event,session)">{{cart.cartBtnLabel}}</a>    
                                         </div>
                                     </div>
                                 </div>

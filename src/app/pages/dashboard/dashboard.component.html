@@ -15,30 +15,26 @@
         <div class="tab-pane fade show active" id="live" role="tabpanel" aria-labelledby="live">
             <!-- Live Session content -->
             <div class="row" *ngIf="this.liveSessions.length > 0">
-                <div *ngFor="let liveSession of liveSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                <div *ngFor="let session of liveSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                     <div class="card profile-card">
                         <div class="profile-img-placeholder position-relative">
-                            <img src="{{mediaURL+liveSession.avator}}" alt="Dianne Russell" class="card-img-top">
+                            <img src="{{mediaURL+session.avator}}" alt="Dianne Russell" class="card-img-top">
                             <div class="ribbon">SEBI</div>
                         </div>
                         <div class="card-body text-center position-relative">
                             <div class="card-title up-se-title">
-                                <h5>{{ liveSession.trainer }}</h5>
-                                <p>{{ liveSession.experience }}+ years of experience</p>
+                                <h5>{{ session.trainer }}</h5>
+                                <p>{{ session.experience }}+ years of experience</p>
                             </div>
-                            <p class="card-text daily-stock">
-                                <span>{{liveSession.expertise}}</span>
-                                <span class="imprima-regular"> 10k+ Followers</span>
+                            <p class="card-text daily-stock text-center">
+                                <span>{{session.course}}</span>
                             </p>
                             <div class="additional-info row">
-                                <p class="col-md-6 imprima-regular price">Starts at Rs.{{ liveSession.price }} + GST</p>
-                                <div class="time col-md-6 row imprima-regular">
-                                    <p class="col-md-6"><i class="fas fa-clock"></i>{{liveSession.duration}} min</p>
-                                    <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
-                                </div>
+                                <p class="col-md-12"><i class="fas fa-clock"></i>
+                                   Duration : {{session.duration}} min</p>
                             </div>
-                            <div class="row p-3">
-                                <button href="#" class="btn btn-primary buy-now" (click)="joinStreamNow(liveSession.id)"> Join Session Now </button>
+                            <div class="row">
+                                <button href="#" class="btn btn-primary buy-now" (click)="joinStreamNow(session.id)"> Join Session Now </button>
                             </div>
                         </div>
                     </div>
@@ -55,30 +51,26 @@
         <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
             <!-- Upcoming Session content -->
             <div class="row" *ngIf="this.nextSessions.length > 0">
-                <div *ngFor="let nextSession of nextSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                <div *ngFor="let session of nextSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                     <div class="card profile-card">
                         <div class="profile-img-placeholder position-relative">
-                            <img src="{{mediaURL+nextSession.avator}}" alt="Dianne Russell" class="card-img-top">
+                            <img src="{{mediaURL+session.avator}}" alt="Dianne Russell" class="card-img-top">
                             <div class="ribbon">SEBI</div>
                         </div>
                         <div class="card-body text-center position-relative">
                             <div class="card-title up-se-title">
-                                <h5>{{ nextSession.trainer }}</h5>
-                                <p>{{ nextSession.experience }}+ years of experience</p>
+                                <h5>{{ session.trainer }}</h5>
+                                <p>{{ session.experience }}+ years of experience</p>
                             </div>
-                            <p class="card-text daily-stock">
-                                <span>{{nextSession.expertise}}</span>
-                                <span class="imprima-regular"> 10k+ Followers</span>
+                            <p class="card-text daily-stock text-center">
+                                <span>{{session.course}}</span>
                             </p>
                             <div class="additional-info row">
-                                <p class="col-md-6 imprima-regular price">Starts at Rs.{{ nextSession.price }} + GST</p>
-                                <div class="time col-md-6 row imprima-regular">
-                                    <p class="col-md-6"><i class="fas fa-clock"></i>{{nextSession.duration}} min</p>
-                                    <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
-                                </div>
+                                <p class="col-md-12"><i class="fas fa-clock"></i>
+                                   Duration : {{session.duration}} min</p>
                             </div>
-                            <div class="row p-3">
-                                <button href="#" class="btn btn-primary buy-now"> Start Stream At <br>{{nextSession.session_start}} - {{nextSession.session_end}} </button>
+                            <div class="row">
+                                <button href="#" class="btn btn-primary buy-now"> Start Stream At <br>{{session.session_start}} - {{session.session_end}} </button>
                             </div>
                         </div>
                     </div>
@@ -95,30 +87,26 @@
         <div class="tab-pane fade" id="previous" role="tabpanel" aria-labelledby="previous-tab">
             <!-- Previous Session content -->
             <div class="row" *ngIf="this.previousSessions.length > 0">
-                <div *ngFor="let previousSession of previousSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                <div *ngFor="let session of previousSessions;" class="swiper-slide col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
                     <div class="card profile-card">
                         <div class="profile-img-placeholder position-relative">
-                            <img src="{{mediaURL+previousSession.avator}}" alt="Dianne Russell" class="card-img-top">
+                            <img src="{{mediaURL+session.avator}}" alt="Dianne Russell" class="card-img-top">
                             <div class="ribbon">SEBI</div>
                         </div>
                         <div class="card-body text-center position-relative">
                             <div class="card-title up-se-title">
-                                <h5>{{ previousSession.trainer }}</h5>
-                                <p>{{ previousSession.experience }}+ years of experience</p>
+                                <h5>{{ session.trainer }}</h5>
+                                <p>{{ session.experience }}+ years of experience</p>
                             </div>
-                            <p class="card-text daily-stock">
-                                <span>{{previousSession.expertise}}</span>
-                                <span class="imprima-regular"> 10k+ Followers</span>
+                            <p class="card-text daily-stock text-center">
+                                <span>{{session.course}}</span>
                             </p>
                             <div class="additional-info row">
-                                <p class="col-md-6 imprima-regular price">Starts at Rs.{{ previousSession.price }} + GST</p>
-                                <div class="time col-md-6 row imprima-regular">
-                                    <p class="col-md-6"><i class="fas fa-clock"></i>{{previousSession.duration}} min</p>
-                                    <p class="col-md-6"><span class="star-rating">⭐</span> 7.0</p>
-                                </div>
+                                <p class="col-md-12"><i class="fas fa-clock"></i>
+                                   Duration : {{session.duration}} min</p>
                             </div>
-                            <div class="row p-3">
-                                <button href="#" class="btn btn-primary buy-now"> Recording Video </button>
+                            <div class="row">
+                                <button href="#" class="btn btn-primary buy-now"> Get Recorded Video </button>
                             </div>
                         </div>
                     </div>

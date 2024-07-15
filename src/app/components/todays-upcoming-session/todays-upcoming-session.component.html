@@ -17,14 +17,20 @@
                                 <h4>{{session.day}} </h4>
                                 <h5>{{session.start_time}} to {{session.end_time}}</h5>
                             </div>
-                            <p class="card-text daily-stock"><span>{{session.expertise}}</span><span class="imprima-regular"> 10k+ Followers</span></p>
+                            <p class="card-text daily-stock">
+                                <span>{{session.course}}</span>
+                            </p>
+                            <p class="card-text daily-stock">
+                                <span class="imprima-regular"> 10k+ Followers</span>
+                                <span class="star-rating">⭐ 7.0 Rating </span>
+                            </p>
                             <div class="additional-info row">
                                 <div class="time col-md-12 col-sm-12 imprima-regular">
-                                    <p class=" text-end"><span class="star-rating">⭐</span> 7.0</p>
+                                    
                                 </div>
                                 <div class="col-md-12 col-sm-12">
                                     <p class="imprima-regular price">
-                                        Buy at Rs.{{ session.price }} + GST
+                                        Buy at <del class="mx-2">Rs.{{ session.price }}</del> <span class="mx-2">{{ session.price }} + GST</span>
                                     </p>
                                 </div>
                             </div>

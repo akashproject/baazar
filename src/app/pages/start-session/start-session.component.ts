@@ -33,7 +33,6 @@ export class StartSessionComponent implements OnInit {
     this.loadLiveStream(id)
     this.subscription = timer(0, 30000).pipe(
       switchMap(async (data) =>{
-        console.log(data);
         this.observeIsLiveExist()
       })
     ).subscribe();

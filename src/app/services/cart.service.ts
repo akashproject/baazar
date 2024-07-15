@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,14 +19,23 @@ export class CartService {
     'coupon' : null
   }
 
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
 
   addToCart(event: any,product : any){
-    console.log(localStorage.getItem("cartItem"));
-    let item : any = [];
-    if (localStorage.getItem("cartItem") !== null) {
-      item = JSON.parse(localStorage.getItem('cartItem') || '{}');
-      item.push(product);
+   
+    let item = JSON.parse(localStorage.getItem('cartItem') || '{}');
+    if (Object.keys(item).length > 0) {
+      for (var k in item){
+        if (item.hasOwnProperty(k)) {
+          console.log(item[k].batch_id,product.batch_id);
+          if(item[k].batch_id == product.batch_id){
+            this.toastr.error('This item alreay exist in cart','Already Exist');
+          } else{
+            item.push(product);
+          }
+        }
+      }
+      //item.push(product);
     } else {
       item.push(product);
     }

@@ -65,6 +65,7 @@ export class CheckoutComponent  implements OnInit{
     }
 
     ngOnInit(): void {
+      this.getStates()
       //this.cart.cartPriceCalculation();
     }
 

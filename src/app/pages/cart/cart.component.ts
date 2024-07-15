@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit{
-  cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):null;
+  cartItem : any = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):[];
   mediaURL: any = '';
   updateCartBtn = false
   couponCode:any = '';
@@ -28,6 +28,8 @@ export class CartComponent implements OnInit{
 
     ngOnInit(): void {      
       this.cart.cartPriceCalculation();
+      console.log(this.cartItem);
+      
     }
 
     removeFromCart(event : any, item:any) {

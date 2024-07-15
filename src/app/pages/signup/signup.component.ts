@@ -31,7 +31,7 @@ export class SignupComponent {
         firstname:['', [Validators.required]],
         lastname:['', [Validators.required]],
         email:['', [Validators.required]],
-        mobile: ['', [Validators.required]], // Validate 10-digit mobile number
+        mobile: ['', [Validators.required]], 
         password: ['', [Validators.required]]
       });
     }
