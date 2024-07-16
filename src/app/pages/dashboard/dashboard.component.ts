@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   public previousSessions : any = [];
   public nextSessions : any = [];
   mediaURL: any = '';
+  public loading = false;
+
   constructor(
     private router: Router,
     private api: ApiService,
@@ -31,14 +33,17 @@ export class DashboardComponent implements OnInit {
   }
 
   getLiveSessions(){
+    this.loading = true;
     this.api.getWithAuth("live-purchased-sessions").subscribe((data: any) => {
       this.liveSessions = data;
+      this.loading = false;
     },(error)=>{
-      console.log(error.error);
+      this.loading = false;
       if (error.error) {
         this.toastr.error('Login to Continue','Session Timeout');
         this.util.logout()
       }
+
     });
   }
 

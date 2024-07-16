@@ -43,6 +43,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { SafePipe } from './pipes/safe.pipe';
+import { NgxLoadingModule } from "ngx-loading";
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { SafePipe } from './pipes/safe.pipe';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added
+    NgxLoadingModule.forRoot({}),
   ],
   providers: [HttpClientModule, provideAnimationsAsync()],
   bootstrap: [AppComponent]

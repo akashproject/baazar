@@ -34,6 +34,7 @@ export class CheckoutComponent  implements OnInit{
   otpSent = false;
   otpValue : any;
   states :any = [];
+  public loading = false;
   constructor(
     private router: Router,
     private api: ApiService,
@@ -71,10 +72,10 @@ export class CheckoutComponent  implements OnInit{
 
 
     createOrder(){
-
-      
+      this.loading = true;
       this.order.createOrder(this.cart.cart)
         .subscribe((response: any) => {
+          this.loading = false;
           localStorage.setItem('order',JSON.stringify(response))
           localStorage.removeItem("cartItem");
           this.router.navigate(['/payment-success']);
@@ -82,6 +83,7 @@ export class CheckoutComponent  implements OnInit{
     }
 
     login() {
+      this.loading = true;
       if(this.loginForm.value.otp == this.otpValue) {
         this.signin.signinUser(this.loginForm.value).subscribe(data => {
           this.signin.setToken(data);
@@ -90,10 +92,15 @@ export class CheckoutComponent  implements OnInit{
             this.user = res
             localStorage.setItem("user", JSON.stringify(res));
             this.confirmPay = true
+            this.loading = true;
            });
+        },(error)=>{
+          this.toastr.error('Mobile No is not exists','Invalid Credentials');
+          this.loading = false;
         });
       } else {
         this.toastr.error('Please enter valid Otp','Invalid Credentials');
+        this.loading = false;
       }
     }
 
@@ -110,7 +117,7 @@ export class CheckoutComponent  implements OnInit{
     }
 
     signupUser(){
-      console.log("valid",this.signupForm);
+      this.loading = true;
       let signUpUser = {
         'user': {
           'name':this.signupForm.value.firstname+' '+this.signupForm.value.lastname,
@@ -132,13 +139,16 @@ export class CheckoutComponent  implements OnInit{
             this.user = res
             localStorage.setItem("user", JSON.stringify(res));
             this.confirmPay = true
+            this.loading = false;
           });
         },(error) => {
           this.toastr.error('Failed to register','Error');
+          this.loading = false;
         });
     }
 
     getOtp(){
+      this.loading = true;
       if(this.signupForm.valid) {
         let mobile = {
           'mobile' : this.signupForm.value.mobile
@@ -147,13 +157,16 @@ export class CheckoutComponent  implements OnInit{
           console.log(data);
           this.otpValue = data
           this.otpSent = true
+          this.loading = false;
         })
       } else {
         this.signupForm.markAllAsTouched();
+        this.loading = false;
       }
     }
 
     getMobileOtp(){
+      this.loading = true;
       if(this.loginForm.valid) {
         let mobile = {
           'mobile' : this.loginForm.value.mobile
@@ -162,9 +175,12 @@ export class CheckoutComponent  implements OnInit{
           console.log(data);
           this.otpValue = data
           this.otpSent = true
+          this.loading = false;
+          
         })
       } else {
         this.loginForm.markAllAsTouched();
+        this.loading = false;
       }
     }
     

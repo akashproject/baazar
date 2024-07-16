@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit{
   loginForm: FormGroup | any;
   otpSent = false;
   otpValue : any;
+  public loading = false;
   constructor(
     private router: Router,
     private api: ApiService,
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit{
   }
 
   getMobileOtp(){
+    this.loading = true;
     if(this.loginForm.valid) {
       let mobile = {
         'mobile' : this.loginForm.value.mobile
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit{
       this.api.post('get-otp',mobile).subscribe((data) => {
         this.otpValue = data
         this.otpSent = true
+        this.loading = false;
       })
     } else {
       this.loginForm.markAllAsTouched();
@@ -54,6 +57,7 @@ export class LoginComponent implements OnInit{
   }
 
   login() {
+    this.loading = true;
     if(this.loginForm.value.otp == this.otpValue) {
       this.signinservice.signinUser(this.loginForm.value).subscribe((data: any) => {
         console.log(data);
@@ -61,12 +65,15 @@ export class LoginComponent implements OnInit{
         this.token_data = data;
         this.signinservice.getUserData(this.token_data.access_token).subscribe((res: any) => {
           localStorage.setItem("user", JSON.stringify(res));
+          this.loading = false;
           this.router.navigate(['/dashboard']);
          });
       },((error) => {
+        this.loading = false;
         this.toastr.error('Please enter valid Credential','Invalid Credentials');
        }));
     } else {
+      this.loading = false;
       this.toastr.error('Please enter valid Otp','Invalid Credentials');
     }
   }

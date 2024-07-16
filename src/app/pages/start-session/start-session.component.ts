@@ -18,6 +18,7 @@ export class StartSessionComponent implements OnInit {
   mediaURL: any = '';
   session : any =[];
   iframeUrl: string | null = null;
+  public loading = false;
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -39,17 +40,21 @@ export class StartSessionComponent implements OnInit {
   }
 
   loadLiveStream(id:any){
+    this.loading = true;
     this.api.getWithAuth("join-stream/"+id).subscribe((data: any) => {
       this.session = data;
       this.iframeUrl = data.streaming_player
+      this.loading = false;
     });
   }
 
   observeIsLiveExist() {
+    this.loading = true;
     this.api.getWithAuth("live-purchased-sessions").subscribe((data: any) => {
       if(Object.keys(data).length <= 0){
         this.toastr.error('This current session is end','Live Session Time Up');
         this.router.navigate(['dashboard']);
+        this.loading = false;
       }
     },(error)=>{
     });   
