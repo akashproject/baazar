@@ -53,15 +53,15 @@
                             <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.plaformFee }}/-</div>
                         </div>
                         <div class="row my-3" >
-                            <div class="col-6 text-left" >GST 18%</div>
-                            <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.taxAmount }}/-</div>
-                        </div>
-                        <div class="row my-3" >
                             <div class="col-6 text-left" >Discount</div>
                             <div class="col-6 text-right" style="text-align: right;">
-                                <span *ngIf="cart.cart.coupon !== null"> ₹ {{cart.cart.coupon.discount}} /-</span>
-                                <span *ngIf="cart.cart.coupon === null"> ₹ 00 /-</span>
+                                <span *ngIf="cart.cart.coupon !== null"> ₹{{cart.cart.coupon.discount}}/-</span>
+                                <span *ngIf="cart.cart.coupon === null"> ₹00/-</span>
                             </div>
+                        </div>
+                        <div class="row my-3" >
+                            <div class="col-6 text-left" >GST 18%</div>
+                            <div class="col-6 text-right" style="text-align: right;"> ₹{{ cart.cart.taxAmount }}/-</div>
                         </div>
                     </div>
                     <div class="total_wrap">

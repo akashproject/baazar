@@ -12,13 +12,13 @@
             <p class="font-label font-poppins">Log in with your data that you entered during Your registration</p>
             <form [formGroup]="loginForm" (ngSubmit)="getMobileOtp()">
               <div *ngIf="!otpSent">
-                <div class="form-group my-3">
-                  <label for="mobile" class="font-label font-poppins">Mobile Number</label>
-                  <input formControlName="mobile" type="number" class="form-control box-shadow mt-2" id="mobile" placeholder="Enter Mobile Number">
-                  <div *ngIf="loginForm.get('mobile')?.invalid && (loginForm.get('mobile')?.touched || loginForm.get('mobile')?.dirty)">
-                    <small *ngIf="loginForm.get('mobile')?.errors?.['required']">Mobile is required.</small>
+                <mat-form-field class="form-group col-md-12 col-lg-12 col-xl-12 mt-3">
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput formControlName="mobile" type="number" id="mobile" placeholder="Enter Your Mobile Number">
+                  <div *ngIf="loginForm.get('mobile').invalid && loginForm.get('mobile').touched">
+                      <div  class="error" *ngIf="loginForm.get('mobile').errors?.required">Mobile is required.</div>
                   </div>
-                </div>
+                </mat-form-field>
                 <div class="my-3">
                   <button type="submit" class="btn btn-primary start-now btn-block" [disabled]="loginForm.invalid">Get OTP</button>
                 </div>
@@ -28,10 +28,13 @@
               </div>
               <div *ngIf="otpSent">
                 <div class="row">
-                    <div class="form-group col-md-12 text-center">
-                        <label for="otp" class="font-label font-poppins mb-2">One time password</label>
-                        <input formControlName="otp"  type="number" class="form-control" id="otp" placeholder="Enter Your One time password">
+                  <mat-form-field class="form-group col-md-12 col-lg-12 col-xl-12 mt-3">
+                    <mat-label>Enter OTP</mat-label>
+                    <input matInput formControlName="otp" type="number" id="otp" placeholder="Enter Your OTP">
+                    <div *ngIf="loginForm.get('otp').invalid && loginForm.get('otp').touched">
+                        <div  class="error" *ngIf="loginForm.get('otp').errors?.required">Otp is required.</div>
                     </div>
+                  </mat-form-field>
                 </div>
                 <div class="row"> 
                     <div class="col-md-12 mt-3">    

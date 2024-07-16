@@ -2,13 +2,13 @@
 <div class="container mt-4">
     <ul class="nav nav-tabs justify-content-around" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="live-tab" data-toggle="tab" href="#live" role="tab" aria-controls="live" aria-selected="true">Live Session</a>
+            <a class="nav-link active" id="live-tab" data-toggle="tab" href="#live" role="tab" aria-controls="live" aria-selected="true" (click)="getLiveSessions()">Live Session</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="upcoming-tab" data-toggle="tab" href="#upcoming" role="tab" aria-controls="upcoming" aria-selected="true">Upcoming Session</a>
+            <a class="nav-link" id="upcoming-tab" data-toggle="tab" href="#upcoming" role="tab" aria-controls="upcoming" aria-selected="true" (click)="getUpcomingSessions()">Upcoming Session</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="previous-tab" data-toggle="tab" href="#previous" role="tab" aria-controls="previous" aria-selected="false">Previous Session</a>
+            <a class="nav-link" id="previous-tab" data-toggle="tab" href="#previous" role="tab" aria-controls="previous" aria-selected="false" (click)="getPreviousSessions()">Previous Session</a>
         </li>
     </ul>
     <div class="tab-content mt-3" id="myTabContent">

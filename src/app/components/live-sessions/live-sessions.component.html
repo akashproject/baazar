@@ -1,7 +1,7 @@
 <div class="container mt-4" >
     <h2 class="text-custom section-title font-Homenaje">Current <span style="color:#f00">Live</span> Sessions</h2>
     <div class="row" >
-        <div class="col-md-4"  *ngFor="let session of sessions;">
+        <div class="col-md-4" *ngFor="let session of sessions;">
             <div class="grid-hrd-wrapper">
                 <div class="grid-hrd my-2">
                     <div class="card card-horizontal">
@@ -19,7 +19,7 @@
                                     <button type="button" class="btn f-o">Futures and Options</button>
                                     <div>
                                         <p class="imprima-regular price">
-                                            <del class="mr-2" ><strong>₹{{ session.price+2000 }}/-</strong></del> ₹{{ session.price }}/- + GST
+                                            <del class="mr-2" ><strong>₹{{ session.price+1000 }}/-</strong></del> ₹{{ session.price }}/- + GST
                                         </p>
                                     </div>
                                     <button href="#" class="btn btn-primary buy-now" (click)="cart.addToCart($event,session)">{{cart.cartBtnLabel}}</button>
@@ -33,7 +33,7 @@
     </div>
     <div class="row" *ngIf="sessions.length <= 0">
         <div class="col-12">
-            <h4> No Live Session Found </h4>
+            <h4> <i class='fas fa-exclamation-triangle success' ></i> No Live Session Found </h4>
         </div>
     </div>
 </div>

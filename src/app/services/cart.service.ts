@@ -25,9 +25,8 @@ export class CartService {
    
     let item = (localStorage.getItem('cartItem') !== null)?JSON.parse(localStorage.getItem('cartItem') || '{}'):[];
     if (Object.keys(item).length > 0) {
-
-      const result = item.filter((f : any) =>
-        f.batch_id === product.batch_id &&
+        const result = item.filter((f : any) =>
+          f.batch_id === product.batch_id &&
           f.course === product.course
         );
 
@@ -45,8 +44,6 @@ export class CartService {
     this.cartPriceCalculation();
   }
 
-
-
   getCartCount() {
     let item = JSON.parse(localStorage.getItem('cartItem') || '{}');
     this.cartCount = item.length
@@ -58,10 +55,10 @@ export class CartService {
   cartPriceCalculation(){ 
     
     const cartItem = JSON.parse(localStorage.getItem('cartItem') || '{}');
+    let sessionPrice :any = 0
+    let plaformFee :any = 0
+    let totalPrice: any = 0;
     if(Object.keys(cartItem).length > 0){
-      let sessionPrice :any = 0
-      let plaformFee :any = 0
-      let totalPrice: any = 0;
       for (var k in cartItem){
         if (cartItem.hasOwnProperty(k)) {
           // console.log(cartItem[k]);
@@ -69,26 +66,24 @@ export class CartService {
           plaformFee = parseInt(plaformFee) + parseInt(cartItem[k].commission_amount)
         }
       }
+      
       totalPrice = parseInt(sessionPrice) + parseInt(plaformFee)
+      if(this.cart.coupon !== null){
+        totalPrice = totalPrice - this.cart.coupon.discount
+      }
+      
       let taxAmount = this.gstCalculate(totalPrice);
       let payableAmount:any = totalPrice+parseInt(taxAmount)
-  
+      this.cart.payableAmount = payableAmount
       this.cartCount.next(cartItem.length)
-      
-      if(this.cart.coupon !== null){
-        payableAmount = payableAmount - this.cart.coupon.discount
-        this.cart.payableAmount = payableAmount
-      }
       this.cart.cartItem = cartItem
       this.cart.sessionPrice = sessionPrice
       this.cart.plaformFee = plaformFee
-      this.cart.totalPrice = totalPrice
-      this.cart.cartItemCount = cartItem.length
+      this.cart.totalPrice = totalPrice 
       this.cart.taxAmount = taxAmount
       this.cart.payableAmount = payableAmount
-  
-      //console.log(this.cart);  
-    }    
+    }  
+    this.cart.cartItemCount = cartItem.length
   }
 
   gstCalculate(totalPrice: number) {

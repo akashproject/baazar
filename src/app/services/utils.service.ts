@@ -196,7 +196,8 @@ export class UtilService {
   }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('user');
+    localStorage.removeItem('access_token');
     this.userInfo = null;
     this.router.navigate(['/']).then(() => {
       window.location.reload();

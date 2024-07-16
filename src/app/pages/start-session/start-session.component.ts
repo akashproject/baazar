@@ -31,7 +31,7 @@ export class StartSessionComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     console.log(id);
     this.loadLiveStream(id)
-    this.subscription = timer(0, 30000).pipe(
+    this.subscription = timer(0, 9000000).pipe(
       switchMap(async (data) =>{
         this.observeIsLiveExist()
       })
@@ -48,6 +48,7 @@ export class StartSessionComponent implements OnInit {
   observeIsLiveExist() {
     this.api.getWithAuth("live-purchased-sessions").subscribe((data: any) => {
       if(Object.keys(data).length <= 0){
+        this.toastr.error('This current session is end','Live Session Time Up');
         this.router.navigate(['dashboard']);
       }
     },(error)=>{

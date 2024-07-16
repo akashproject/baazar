@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit {
       console.log(error.error);
       if (error.error) {
         this.toastr.error('Login to Continue','Session Timeout');
+        this.util.logout()
       }
     });
   }
@@ -45,10 +46,7 @@ export class DashboardComponent implements OnInit {
     this.api.getWithAuth("past-purchased-sessions").subscribe((data: any) => {
       this.previousSessions = data;
     },(error)=>{
-      if (error.error) {
-        this.toastr.error('Login to Continue','Session Timeout');
-        this.util.logout()
-      }
+      
     });
   }
 
@@ -56,10 +54,7 @@ export class DashboardComponent implements OnInit {
     this.api.getWithAuth("upcoming-purchased-sessions").subscribe((data: any) => {
       this.nextSessions = data;
     },(error)=>{
-      console.log(error.error);
-      if (error.error) {
-        this.toastr.error('Login to Continue','Session Timeout');
-      }
+     
     });
   }
 
